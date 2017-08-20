@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Debuggowanie JVM via Eclipse</title>
+		<meta name="author" content="Dariusz Olszowy">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+				<section>
+					<h2>De<span class="orange">bugg</span>owanie</h2>
+					<h4>kodu w JVM</h4>
+					<!-- </br></br><p>
+						<small>Autor: <a href="">Dariusz Olszowy</a></small>
+					</p> -->
+				</section>
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+				<section>
+					<section>
+						<h1 class="fragment shrink-much">Ciut teorii</h1>
+					</section>
+					<section>
+						<h3>Debuggowanie JVM</h3>
+						<p class="fragment"><span class="darker">> </span><span class="orange"><b>zatrzymanie JVM</b></span> w wybranym momencie</p>
+						<p class="fragment"><span class="darker">> </span>wykonywanie kodu <span class="orange"><b>linia po linii</b></span></p>
+						<p class="fragment"><span class="darker">> </span>możliwość edycji i <span class="orange"><b>wgląd do zmiennych</b></span></p>
+						<p class="fragment"><span class="darker">> </span>wplatanie / <span class="orange"><b>wykonywanie kodu</b></span></p>
+					</section>
+					<section>
+						<h3>Eclipse <span class="orange">vs</span> JVM</h3>
+						<div class = "fragment" data-fragment-index="1"style="background-image: url('img/deb_eclise_1.png');height:108px; background-size: 100%"></div>
+						<div class = "fragment" data-fragment-index="3" style="background-image: url('img/deb_eclise_2.png');height:253px; background-size: 100%"></div>
+						<div class = "fragment" data-fragment-index="2" style="background-image: url('img/deb_eclise_3.png');height:204px; background-size: 100%"></div>
+					</section>
+
+					<section>
+						<h3><span class="orange">Nic</span> za darmo</h3>
+						<small class="darker">-agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:36203</small>
+						<p class = "fragment">...mają wpływ na wydajność pracy VM !</p>
+						<p class = "fragment">...debuggowanie = zawieszanie pracy VM !</p>
+					</br>
+						<h4 class = "fragment">LOKALNIE - <span style="color:green">TAK</span> ; na 'PRODUKCJI' - <span style="color:red">NIE</span> !</h4>
+					</section>
+
+				</section>
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+				<section>
+					<section>
+						<h2>Breakpoint-y (<span style="color:#e7ad52">BP</span>)</h2>
+						<h5>(bo od czegoś trzeba zacząć)</h5>
+					</section>
+					<section data-background-video="vidios/breakpoint_add.webm" data-background-color="#000000" data-background-video-loop="loop">
+						<div class = "fragment fade-out">
+							<div style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px; margin: 20px;">
+								<h5>...wskazują <span style="color:#e7ad52">miejsce wstrzymania</span> wątku JVM i przejęcie sterowania przez debuggera</h5>
+							</div>
+							<div style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;margin: 20px;">
+								<h5>...najczęściej spotykany typ BP to <span style="color:#e7ad52">linia kodu</span>, przed której wykonaniem dochodzi do wstrzymania JVM</h5>
+							</div>
+							<div style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;margin: 20px;">
+								<h5>...BP może też być <span style="color:#e7ad52">akcja odczytu/zapisu zmiennej klasowej</span> lub <span style="color:#e7ad52">wystąpienie wyjątku</span></h5>
+							</div>
+						</div>
+						<aside class="notes">
+							The Debug View allows you to manage the debugging or running of a program in the workbench. It displays the stack frame for the suspended threads for each target you are debugging. Each thread in your program appears as a node in the tree. It displays the process for each target you are running.</br></br>
+							If the thread is suspended, its stack frames are shown as child elements.
+						</aside>
+					</section>
+				</section>
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+				<section>
+					<section>
+						<h2>Nawigacja</h2>
+						<h4 class = "orange">podczas debuggowania</h4></br>
+						<table>
+							<tbody>
+								<tr class = "fragment">
+									<td><img src="img/db_resume.png" class="plain picto"></td>
+									<td>przejście do kolejnego breakpoint-u</td>
+								</tr>
+								<tr class = "fragment">
+									<td><img src="img/db_step_over.png" class="plain picto"></td>
+									<td>przejście do kolejnej linii kodu</td>
+								</tr>
+								<tr class = "fragment">
+									<td><img src="img/db_step_into.png" class="plain picto"></td>
+									<td>przejście w głąb kodu <span class = "darker">(wywołania metody)</span></td>
+								</tr>
+								<tr class = "fragment">
+									<td><img src="img/db_step_out.png" class="plain picto"></td>
+									<td>powrót z głębin kodu <span class = "darker">(do miejsca wywołania metody)</span></td>
+								</tr>
+							</tbody>
+						</table>
+						<aside class="notes">
+							JVM zostaje zatrzymana; sterowanie przechodzi do Eclipse; co dalej? <br/><br/>
+							Chcemy się poruszać po kodzie. Oto podstawowe operacje.
+						</aside>
+					</section>
+					<section>
+						<h2>Przykład <span class = "orange">1</span></h2>
+						<p>Podstawowa nawigacja</p>
+					</section>
+					<section>
+						<h2>Udogodnienia</h2>
+						<!-- <h4>w podstawowej nawigacji</h4> -->
+						<p class="fragment"><span class="darker">> </span><b><u>Step filter</u></b> (<img src="img/db_step_filter.png" class="plain" style = "margin: 0">) : pozwala zdefiniować klasy lub całe pakiety, które będą pomijane podczas debuggowania <span class = "darker">(<i>javax.*</i>, <i>java.util.*</i>)</span>.</p>
+						<p class="fragment"><span class="darker">> </span><b><u>Run to line</u></b> (<img src="img/db_run_to_line.png" class="plain" style = "margin: 0">) : pozwala na natychmiastowe przejście do wskazanej kursorem linii.</p>
+						<p class="fragment"><span class="darker">> </span><b><u>Step into selection</u></b> : pozwala 'wejść' we wskazaną kursorem metodę<span class="fragment">; np: <span class = "darker">
+							<code>a.getB().getC().<span style="color:#e7ad52">doIt()</span>.fire()</code></span></span></p>
+					</section>
+				</section>
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+				<section>
+					<section data-background="img/widok_debug.png">
+						<h2>Widok 'Debug'</h2>
+						<div class = "fragment fade-out">
+							<div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
+								<h5><span class="darker">> </span>wszystkie JVM, których nasłuchujemy w trybie debbug</h5>
+							</div>
+							<div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px;margin: 20px;">
+								<h5><span class="darker">> </span>wszystkie działające wątki tych JVM</h5>
+							</div>
+							<div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px;margin: 20px;">
+								<h5><span class="darker">> </span>zawieszony wątek, w ramach którego debuggujemy <span style = "color:#e7ad52">wraz ze stosem ramek</span> oraz lock-ami, które posiada</h5>
+							</div>
+						</div>
+						<aside class="notes">
+							The Debug View allows you to manage the debugging or running of a program in the workbench. It displays the stack frame for the suspended threads for each target you are debugging. Each thread in your program appears as a node in the tree. It displays the process for each target you are running.</br></br>
+							If the thread is suspended, its stack frames are shown as child elements.
+						</aside>
+					</section>
+					<section>
+						<!-- db_drop_to_frame.png -->
+						<h3><img src="img/db_drop_to_frame.png" class="plain" style = "margin: 0; max-width:5%; width:100%; border:1px solid #e7ad52;"> Drop to frame</h3>
+						<p>Pozwala cofnąć się do początku bieżącej ramki: przywracany jest stan zmiennych a sterowanie wraca do 'początku' ramki.</p>
+					</br>
+						<p class = "fragment"><b><span style = "color:#e7ad52">!</span> Efekty wywołań metod ('efekty uboczne') nie są magicznie cofane...</b></p>
+					</section>
+					<section>
+						<h2>Przykład <span class = "orange">2</span></h2>
+						<p>Cofanie się do początku <strike class="darker">wszechrzeczy</strike> ramki</p>
+						<p>Przegląd stosu ramek</p>
+					</section>
+				</section>
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+				<section>
+					<section>
+						<h2>Podgląd zmiennych</h2>
+						<p class="fragment"><span class="darker">> </span><b>Widok <span class="orange">'<u>Variables</u>'</span> :</b> służy do inspekcji zmiennych oraz ich struktur</p>
+						<p class="fragment"><span class="darker">> </span><b>Widok <span class="orange">'<u>Expressions</u>'</span> :</b> służy do automatycznej ewaluacji wyrażeń opartych na zmiennych</p>
+						<!-- <p class="fragment"><b>Widok <span class="orange">'<u>Display</u>'</span> :</b> jest swoistym sandboxem służącym m.in. do ewaluowania wyrażeń</p> -->
+						<br/>
+						<p class="fragment"><small class="darker"><span class="orange">!</span> Kontekstem tych widoków jest aktualna ramka; widoki zmieniają się wraz ze wsazaniem lub przejściem do innej ramki.</small></p>
+					</section>
+					<section>
+						<h3>Udogodnienia</h3>
+						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'<u>Inspect</u>'</span></b><span class ="darker"> (również pod PPM)</span></p>
+						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'<u>Instances count</u>'</span></b><span class ="darker"> (również pod PPM)</span></p>
+						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'<u>All instances</u>'</span></b><span class ="darker"> (również pod PPM)</span></p>
+						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'<u>All references</u>'</span></b></p>
+						<p class="fragment"><span class="darker">> </span><b>Przełączanie 'na' <span class="orange"><u>inne ramki</u></span> ze stosu</b></p>
+					</section>
+					<section>
+						<h3>Details Formatter</h3>
+						<p>...jest to swoisty <b><code class="orange">'toString()'</code></b> używany do wyświetlania użytecznego podglądu obiektu podczas debugowania.</p>
+						<br/>
+						<p class = "fragment">Alternatywa dla: <code class="darker">'Object@ba8a1dc'</code></p>
+						<br/>
+						<p class = "fragment darker"><small><span class = "orange">!</span> Dostępne w 'Preferences' -> 'Debug' lub pod PPM podczas debuggowania</small></p>
+					</section>
+				</section>
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<section>
+					<section>
+						<h3>Modyfikacja zmiennych oraz wykonywanie kodu</h3>
+						<h4 class = "orange">w kontekście aktywnej ramki</h4>
+						<br/>
+						<p class="fragment"><span class="darker">> </span><b><u>Modyfikacja</u></b> : widok <span class="orange"><b>'Variables'</b></span></span>.</p>
+						<p class="fragment"><span class="darker">> </span><b><u>Wykonywanie kodu</u></b> : widok <span class="orange"><b>'Display'</b></span> lub pod PPM</span></p>
+						<aside class="notes">
+							...ułatwia zreprodukowanie błędu oraz pozwala na testy poprawek
+						</aside>
+					</section>
+
+					<section>
+						<h3 class="fragment fade-out">Modyfikacja zmiennych w </h3>
+						<p class="fragment">VIDIO ze zmianą primitive; obieku; pola obiektu; jedno jako ewaluacja!</p>
+						<!--
+							można ewaluować
+							można dodać jako expression
+						-->
+					</section>
+
+					<section>
+						<h3>Sandbox 'Display'</h3>
+						<p class="fragment"><b>Dodawanie <span class="orange"><u>'expression' na podstawie 'Display'</u></span></b></p>
+						<!--
+							można ewaluować
+							można dodać jako expression
+						-->
+					</section>
+					<section>
+						<h3>Force return</h3>
+					</section>
+
+					<!-- <h1>TO<span class="orange">DO</span></h1> -->
+					</section>
+				<section>
+					<section>
+						<h2>Breakpointy cz.II</h2>
+						<h4 class = "orange">ostatnia</h4>
+						<br/>
+						<p>pozostałe typy / właściwości</p>
+					</section>
+				</section>
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+				<section>
+					<section>
+						<h1>Zdalne<span class="orange"> debuggowanie</span></h1>
+
+					</section>
+
+					<section>
+						<h4>Brak<span class="orange"> źródełeł</span></h4>
+
+					</section>
+
+
+					<section>
+						<h4>Szturchanie<span class="orange"> Smykiem 2.0</span></h4>
+
+					</section>
+
+				</section>
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+				<section><h1>TO<span class="orange">DO</span></h1></section>
+				<section>
+					<h1>TRI<span class="orange">KI</span></h1>
+					<p>contitional wykonywujacy kod</p>
+					<p>trigger point</p>
+					</section>
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			</div> <!-- end: slides -->
+		</div> <!-- end: reveal -->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
