@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en">
 
+
+<!-- SNIPPETY 
+	TŁO ANIMOWANE: data-background-video="vidios/breakpoint_add.webm" data-background-color="#000000" data-background-video-loop="loop"
+-->
+
 	<head>
 		<meta charset="utf-8">
 		<title>Debuggowanie JVM via Eclipse</title>
@@ -39,9 +44,6 @@
 				<section>
 					<h2>De<span class="orange">bugg</span>owanie</h2>
 					<h4>kodu w JVM</h4>
-					<!-- </br></br><p>
-						<small>Autor: <a href="">Dariusz Olszowy</a></small>
-					</p> -->
 				</section>
 
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -59,7 +61,7 @@
 					</section>
 					<section>
 						<h3>Eclipse <span class="orange">vs</span> JVM</h3>
-						<div class = "fragment" data-fragment-index="1"style="background-image: url('img/deb_eclise_1.png');height:108px; background-size: 100%"></div>
+						<div class = "fragment" data-fragment-index="1" style="background-image: url('img/deb_eclise_1.png');height:108px; background-size: 100%"></div>
 						<div class = "fragment" data-fragment-index="3" style="background-image: url('img/deb_eclise_2.png');height:253px; background-size: 100%"></div>
 						<div class = "fragment" data-fragment-index="2" style="background-image: url('img/deb_eclise_3.png');height:204px; background-size: 100%"></div>
 					</section>
@@ -80,23 +82,11 @@
 				<section>
 					<section>
 						<h2>Breakpoint-y (<span style="color:#e7ad52">BP</span>)</h2>
-						<h5>(bo od czegoś trzeba zacząć)</h5>
-					</section>
-					<section data-background-video="vidios/breakpoint_add.webm" data-background-color="#000000" data-background-video-loop="loop">
-						<div class = "fragment fade-out">
-							<div style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px; margin: 20px;">
-								<h5>...wskazują <span style="color:#e7ad52">miejsce wstrzymania</span> wątku JVM i przejęcie sterowania przez debuggera</h5>
-							</div>
-							<div style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;margin: 20px;">
-								<h5>...najczęściej spotykany typ BP to <span style="color:#e7ad52">linia kodu</span>, przed której wykonaniem dochodzi do wstrzymania JVM</h5>
-							</div>
-							<div style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;margin: 20px;">
-								<h5>...BP może też być <span style="color:#e7ad52">akcja odczytu/zapisu zmiennej klasowej</span> lub <span style="color:#e7ad52">wystąpienie wyjątku</span></h5>
-							</div>
-						</div>
+						<h5 class = "fragment">...definiują <span style="color:#e7ad52">zdarzenia prowadzące do wstrzymania wątku JVM</span> i przejęcie sterowania przez debuggera</h5></br>
+						<h5 class = "fragment">...najczęściej : <span style="color:#e7ad52">zdarzenie dojścia do wskazanej linii kodu</span></h5></br>
+						<h5 class = "fragment">...rzadziej : <span style="color:#e7ad52">akcje odczytu/zapisu zmiennej klasowej</span> lub <span style="color:#e7ad52">wystąpienie wyjątku</span></h5>
 						<aside class="notes">
-							The Debug View allows you to manage the debugging or running of a program in the workbench. It displays the stack frame for the suspended threads for each target you are debugging. Each thread in your program appears as a node in the tree. It displays the process for each target you are running.</br></br>
-							If the thread is suspended, its stack frames are shown as child elements.
+							todo todo todo todo todo todo todo todo todo todo todo
 						</aside>
 					</section>
 				</section>
@@ -111,19 +101,19 @@
 							<tbody>
 								<tr class = "fragment">
 									<td><img src="img/db_resume.png" class="plain picto"></td>
-									<td>przejście do kolejnego breakpoint-u</td>
+									<td><b>przejście do kolejnego breakpoint-u</b></td>
 								</tr>
 								<tr class = "fragment">
 									<td><img src="img/db_step_over.png" class="plain picto"></td>
-									<td>przejście do kolejnej linii kodu</td>
+									<td><b>przejście do kolejnej linii kodu</b></td>
 								</tr>
 								<tr class = "fragment">
 									<td><img src="img/db_step_into.png" class="plain picto"></td>
-									<td>przejście w głąb kodu <span class = "darker">(wywołania metody)</span></td>
+									<td><b>przejście w głąb kodu</b> <span class = "darker">(wywołania metody)</span></td>
 								</tr>
 								<tr class = "fragment">
 									<td><img src="img/db_step_out.png" class="plain picto"></td>
-									<td>powrót z głębin kodu <span class = "darker">(do miejsca wywołania metody)</span></td>
+									<td><b>powrót z głębin kodu</b> <span class = "darker">(do miejsca wywołania metody)</span></td>
 								</tr>
 							</tbody>
 						</table>
@@ -150,15 +140,15 @@
 
 				<section>
 					<section data-background="img/widok_debug.png">
-						<h2>Widok 'Debug'</h2>
-						<div class = "fragment fade-out">
-							<div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
-								<h5><span class="darker">> </span>wszystkie JVM, których nasłuchujemy w trybie debbug</h5>
+						<h2>Widok <span class = "orange">'Debug'</span></h2>
+						<div class = "fragment fade-out" data-fragment-index="4">
+							<div class = "fragment" data-fragment-index="1" style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
+								<h5><span class="darker">> </span><span class="orange">JVM</span>, których nasłuchujemy w trybie debugg</h5>
 							</div>
-							<div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px;margin: 20px;">
-								<h5><span class="darker">> </span>wszystkie działające wątki tych JVM</h5>
+							<div class = "fragment" data-fragment-index="2" style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px;margin: 20px;">
+								<h5><span class="darker">> </span>wszystkie <span class="orange">wątki</span> działające w ramach JVM</h5>
 							</div>
-							<div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px;margin: 20px;">
+							<div class = "fragment" data-fragment-index="3" style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px;margin: 20px;">
 								<h5><span class="darker">> </span>zawieszony wątek, w ramach którego debuggujemy <span style = "color:#e7ad52">wraz ze stosem ramek</span> oraz lock-ami, które posiada</h5>
 							</div>
 						</div>
@@ -188,7 +178,6 @@
 						<h2>Podgląd zmiennych</h2>
 						<p class="fragment"><span class="darker">> </span><b>Widok <span class="orange">'<u>Variables</u>'</span> :</b> służy do inspekcji zmiennych oraz ich struktur</p>
 						<p class="fragment"><span class="darker">> </span><b>Widok <span class="orange">'<u>Expressions</u>'</span> :</b> służy do automatycznej ewaluacji wyrażeń opartych na zmiennych</p>
-						<!-- <p class="fragment"><b>Widok <span class="orange">'<u>Display</u>'</span> :</b> jest swoistym sandboxem służącym m.in. do ewaluowania wyrażeń</p> -->
 						<br/>
 						<p class="fragment"><small class="darker"><span class="orange">!</span> Kontekstem tych widoków jest aktualna ramka; widoki zmieniają się wraz ze wsazaniem lub przejściem do innej ramki.</small></p>
 					</section>
@@ -199,6 +188,11 @@
 						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'<u>All instances</u>'</span></b><span class ="darker"> (również pod PPM)</span></p>
 						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'<u>All references</u>'</span></b></p>
 						<p class="fragment"><span class="darker">> </span><b>Przełączanie 'na' <span class="orange"><u>inne ramki</u></span> ze stosu</b></p>
+						<p class="fragment"><span class="darker">> </span><b><span class="orange">'<u>Details Formatter</u>'</span></b></p>
+					</section>
+						<section>
+						<h2>Przykład <span class = "orange">3</span></h2>
+						<p>Inspekcja zmiennych</p>
 					</section>
 					<section>
 						<h3>Details Formatter</h3>
@@ -213,49 +207,86 @@
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 				<section>
 					<section>
-						<h3>Modyfikacja zmiennych oraz wykonywanie kodu</h3>
+						<h2>Modyfikacja zmiennych</h2>
 						<h4 class = "orange">w kontekście aktywnej ramki</h4>
 						<br/>
-						<p class="fragment"><span class="darker">> </span><b><u>Modyfikacja</u></b> : widok <span class="orange"><b>'Variables'</b></span></span>.</p>
-						<p class="fragment"><span class="darker">> </span><b><u>Wykonywanie kodu</u></b> : widok <span class="orange"><b>'Display'</b></span> lub pod PPM</span></p>
+						<p class="fragment">...widok <span class="orange"><b>'Variables'</b></span></span></p>
 						<aside class="notes">
 							...ułatwia zreprodukowanie błędu oraz pozwala na testy poprawek
 						</aside>
 					</section>
 
 					<section>
-						<h3 class="fragment fade-out">Modyfikacja zmiennych w </h3>
-						<p class="fragment">VIDIO ze zmianą primitive; obieku; pola obiektu; jedno jako ewaluacja!</p>
-						<!--
-							można ewaluować
-							można dodać jako expression
-						-->
+						<div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
+								<h5>'<span class = "orange">Variables</span>' : mod. typu prymitywnego</h5>
+						</div>
+						<p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 					</section>
 
 					<section>
-						<h3>Sandbox 'Display'</h3>
-						<p class="fragment"><b>Dodawanie <span class="orange"><u>'expression' na podstawie 'Display'</u></span></b></p>
-						<!--
-							można ewaluować
-							można dodać jako expression
-						-->
-					</section>
-					<section>
-						<h3>Force return</h3>
+						<div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
+                            <h5>'<span class = "orange">Variables</span>' : prosta podmiana obiektu</h5>
+                        </div>
+                        <p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 					</section>
 
-					<!-- <h1>TO<span class="orange">DO</span></h1> -->
-					</section>
-				<section>
 					<section>
-						<h2>Breakpointy cz.II</h2>
-						<h4 class = "orange">ostatnia</h4>
-						<br/>
-						<p>pozostałe typy / właściwości</p>
+						 <div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
+                            <h5>'<span class = "orange">Variables</span>' : złożona podmiana obiektu</h5>
+                        </div>
+                        <p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+					</section>
+
+					<section>
+						<div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
+                            <h5>'<span class = "orange">Variables</span>' : mod. zmiennych obiektu</h5>
+                        </div>
+                        <p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 					</section>
 				</section>
 
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+				<section>
+					<section>
+						<h2>Wykonywanie kodu</h2>
+						<h4 class = "orange">w kontekście aktywnej ramki</h4>
+						<br/>
+						<p class="fragment">...widok <span class="orange"><b>'Display'</b></span> lub pod PPM</span></p>
+						<aside class="notes">
+							...ułatwia zreprodukowanie błędu oraz pozwala na testy poprawek
+						</aside>
+					</section>
+					<section>
+						<h3>Sandbox <span class = "orange">'Display'</span></h3>
+						<p>...jest miejscem, w którym możemy <span class="orange">wykonać</span> bądź <span class="orange">zewaluować</span> dowolny kod - również taki ze 'skutkami ubocznymi'.</p>
+						<p>...kluczowe są ikony [X] oraz [Y] służące do wykonania zaznaczonego w oknie kodu</p>
+						</br>
+						<p class="fragment"><small class="darker"><span class="orange">!</span> Opcja 'execute' jest też dostępna dla zaznaczonego tekstu w standardowym edytorze pod PPM</small></p>
+					</section>
+
+					<section>
+						<h3>Force <span class="orange">return</span></h3>
+						<p>...pozwala <span class="orange">wymusić</span> natychmiastowe zwrócenie wskazanej wartości przez aktywną metodę (ramkę)</p>
+						</br>
+						<p class="fragment"><small class="darker"><span class="orange">!</span> Opcja 'force return' jest też dostępna pod PPM w kilku miejscach dla metod typu 'void'</small></p>
+
+					</section>
+
+					<!-- <h1>TO<span class="orange">DO</span></h1> -->
+					</section>
+				</section>
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+				<section>
+					<section>
+						<h2>Breakpointy <span class = "orange">cz.II</span></h2>
+						<h4 class = "darker">ostatnia</h4>
+						<br/>
+						<p>pozostałe typy / właściwości</p>
+					</section>
+				</section>
 
 				<section>
 					<section>
