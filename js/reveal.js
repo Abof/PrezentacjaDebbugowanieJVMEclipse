@@ -56,7 +56,7 @@
 			progress: true,
 
 			// Display the page number of the current slide
-			slideNumber: false,
+			slideNumber: true,
 
 			// Determine which displays to show the slide number on
 			showSlideNumber: 'all',
@@ -261,8 +261,8 @@
 
 		// Holds information about the keyboard shortcuts
 		keyboardShortcuts = {
-			'N  ,  SPACE':			'Next slide',
-			'P':					'Previous slide',
+			'N  ,  SPACE, &#40;':	'Next slide',
+			'P , &#38;':			'Previous slide',
 			'&#8592;  ,  H':		'Navigate left',
 			'&#8594;  ,  L':		'Navigate right',
 			'&#8593;  ,  K':		'Navigate up',
