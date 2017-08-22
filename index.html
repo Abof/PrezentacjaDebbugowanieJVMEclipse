@@ -322,10 +322,11 @@
 
 				<section>
 					<section>
-						<h2><span class="orange">Zdalne</span></h2>
-						<h4>debuggowanie</h4>
-						<p>Czy opcaje pod przycikiem * można odtworzyć ręcznie?</p>
-						<p>Dwie rzeczy: JVM w trybie debbug + połączenie się na porcie</p>
+						<h2><span class="orange">Zdalne</span> debuggowanie</h2>
+						<p class="fragment">Ręczne przygotowanie debbugera:</p>
+						<p class="fragment"><span class="darker">> </span>uruchomienie dowolnego <span class="orange"><b>JVM z odpowiednimi parametrami</b></span></p>
+						<p class="fragment"><span class="darker">> </span><b><span class="orange">połączenie do JVM</b> klientem - debbugerem czyli <b>Eclipsem</b></span></p>
+						<small class="fragment">Parametry VM: <span class="darker">-agentlib:jdwp=transport=dt_socket,suspend=y,address=36203</span></small>
 					</section>
 
 					<section>
@@ -335,37 +336,52 @@
 
 					<section>
 						<h2>Przykład <span class = "orange">Y</span></h2>
-						<p>połączenie do Wildfly</p>
+						<p>połączenie do Wildfly / JBoss</p>
+						<p class = "fragment darker"><small>zakończone problemem ze źródłami</small></p>
 					</section>
 
 
 					<section>
-						<h3>Problem!</h3>
-						<h4>Brak<span class="orange"> źródełeł</span></h4>
+						<h2>Problemy ze <span class = "orange">źródłami</span></h2>
+						<p class="fragment"><span class="darker">> </span>gdy, na zdalnej JVM, przejdziemy do <span class = "orange">linii kodu, którego nie posiadamy w Eclipse</span></p>
+						<p class="fragment"><span class="darker">> </span>gdy posiadamy <span class = "orange">inną wersję kodu</span> względem tego po którym nawigujemy w zdalnej JVM</p>
+						</br>
+						<p class="fragment"><u><b>Rozwiązanie</b></u>: dodanie źródeł w sekcji '<span class = "orange">Source Lookup</span>'</p>
+					</section>
+				</section>
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+				<section>
+					<section>
+						<h1>TRI<span class="orange">KI</span></h1>
 					</section>
 
+					<section>
+						<h3>TRIK <span class = "orange">Automatyczne wykonywanie kodu w BP</span></h3>
+						<p class="fragment"><span class="darker">> </span>Warunki dla BP mogą być blokami kodu - na ich końcu nalezy zwrócić <code>true</code> lub <code>false</code>.</p>
+						<p class="fragment"><span class="darker">> </span>Kod przed instrukcją <code>return</code> może być dowolny.</p>
+						<p class="fragment"><span class="darker">> </span>Gdy blok będzie zwracał na sztywno <code>false</code> - <span class = "orange"><b>nie dojdzie do zatrzymania JVM ale pozostały kod z bloku automatycznie zostanie wykoanny</b></span>!</p>
+					</section>
 
 					<section>
-						<h3>TIP!</h3>
-						<h4>Szturchanie<span class="orange"> Smykiem 2.0</span></h4>
+						<h3>Przykład</h3>
+						<h5><span class = "darker">Automatyczne wykonywanie kodu w BP</span></h5>
+						<img class ="plain" src = "img/db_trik_automat_wyk_kodu.png">
+					</section>
+
+					<section>
+						<h3>TRIK <span class = "orange">Trigger BP</span></h3>
+						<p class="fragment"><span class="darker">> </span>Warunki dla BP mogą być blokami kodu - na ich końcu nalezy zwrócić <code>true</code> lub <code>false</code>.</p>
+						<p class="fragment"><span class="darker">> </span>Kod przed instrukcją <code>return</code> może być dowolny.</p>
+						<p class="fragment"><span class="darker">> </span>Gdy blok będzie zwracał na sztywno <code>false</code> - <span class = "orange"><b>nie dojdzie do zatrzymania JVM ale pozostały kod z bloku automatycznie zostanie wykoanny</b></span>!</p>
 					</section>
 
 					<section>
 						<h2>Przykład <span class = "orange">Wildfly</span></h2>
 						<p>plus wykonywanie kodu - generalnie całość! Plus źródła do Hiberante np albo sterownika Postgresa!</p>
 					</section>
-
-
 				</section>
-
-				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-				<section><h1>TO<span class="orange">DO</span></h1></section>
-				<section>
-					<h1>TRI<span class="orange">KI</span></h1>
-					<p>contitional wykonywujacy kod</p>
-					<p>trigger point</p>
-					</section>
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 			</div> <!-- end: slides -->
 		</div> <!-- end: reveal -->
