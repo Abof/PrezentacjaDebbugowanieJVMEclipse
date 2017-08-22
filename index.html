@@ -44,6 +44,8 @@
 				<section>
 					<h2>De<span class="orange">bugg</span>owanie</h2>
 					<h4>kodu w JVM</h4>
+					<br/><br/><br/>
+					<!-- <p class = "darker">goo.gl/<b>QQhRh7</b></p> -->
 				</section>
 
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -190,12 +192,12 @@
 						<p class="fragment"><span class="darker">> </span><b>Przełączanie 'na' <span class="orange"><u>inne ramki</u></span> ze stosu</b></p>
 						<p class="fragment"><span class="darker">> </span><b><span class="orange">'<u>Details Formatter</u>'</span></b></p>
 					</section>
-						<section>
+					<section>
 						<h2>Przykład <span class = "orange">3</span></h2>
 						<p>Inspekcja zmiennych</p>
 					</section>
 					<section>
-						<h3>Details Formatter</h3>
+						<h3>'Details Formatter'</h3>
 						<p>...jest to swoisty <b><code class="orange">'toString()'</code></b> używany do wyświetlania użytecznego podglądu obiektu podczas debugowania.</p>
 						<br/>
 						<p class = "fragment">Alternatywa dla: <code class="darker">'Object@ba8a1dc'</code></p>
@@ -215,34 +217,42 @@
 							...ułatwia zreprodukowanie błędu oraz pozwala na testy poprawek
 						</aside>
 					</section>
-
 					<section>
 						<div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
-								<h5>'<span class = "orange">Variables</span>' : mod. typu prymitywnego</h5>
+							<h5>'<span class = "orange">Variables</span>' : mod. typu prymitywnego</h5>
 						</div>
 						<p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 					</section>
-
 					<section>
 						<div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
                             <h5>'<span class = "orange">Variables</span>' : prosta podmiana obiektu</h5>
                         </div>
                         <p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 					</section>
-
 					<section>
 						 <div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
                             <h5>'<span class = "orange">Variables</span>' : złożona podmiana obiektu</h5>
                         </div>
                         <p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 					</section>
-
 					<section>
 						<div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
                             <h5>'<span class = "orange">Variables</span>' : mod. zmiennych obiektu</h5>
                         </div>
                         <p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 					</section>
+					<section>
+                    	<h3><span class = "orange">Po co</span> to komu?</h3>
+                    	<p class="fragment"><span class="darker">> </span>reprodukcja błędów</p>
+                    	<p class="fragment"><span class="darker">> </span>sterowanie przepływem kodu aby osiągnąć zamierzony cel <span class = "darker">(np. dla celów scenariuszy testowych)</span></p>
+                      	<p class="fragment"><span class="darker">> </span>u<span class = "orange">nie</span>zależnienie się od cudzych implementacji <span class = "darker">(też: błędów w kodzie)</span></p>
+                    	<p class="fragment"><span class="darker">> </span>testowanie kodu</p>
+					</section>
+					<section>
+						<h2>Przykład <span class = "orange">4</span></h2>
+						<p>Modyfikacja zmiennych</p>
+					</section>
+					
 				</section>
 
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -259,8 +269,8 @@
 					</section>
 					<section>
 						<h3>Sandbox <span class = "orange">'Display'</span></h3>
-						<p>...jest miejscem, w którym możemy <span class="orange">wykonać</span> bądź <span class="orange">zewaluować</span> dowolny kod - również taki ze 'skutkami ubocznymi'.</p>
-						<p>...kluczowe są ikony [X] oraz [Y] służące do wykonania zaznaczonego w oknie kodu</p>
+						<p class="fragment">...jest miejscem, w którym możemy <span class="orange">wykonać</span> bądź <span class="orange">zewaluować</span> dowolny kod - również taki ze 'skutkami ubocznymi'.</p>
+						<p class="fragment">...kluczowe są ikony [X] oraz [Y] służące do wykonania zaznaczonego w oknie kodu</p>
 						</br>
 						<p class="fragment"><small class="darker"><span class="orange">!</span> Opcja 'execute' jest też dostępna dla zaznaczonego tekstu w standardowym edytorze pod PPM</small></p>
 					</section>
@@ -273,8 +283,19 @@
 
 					</section>
 
-					<!-- <h1>TO<span class="orange">DO</span></h1> -->
+					<section>
+                    	<h3>A <span class = "orange">to</span> po co komu?</h3>
+                    	<p class="fragment"><span class="darker">> </span>po to samo po co podmiana zmiennych</p>
+                    	<h4 class="fragment">A <u>szczególnie</u>:</h4> 
+                      	<p class="fragment"><span class="darker">> </span>do <span class="orange">prototypowania</span> rozwiązań problemów</p>
 					</section>
+
+					<section>
+						<h2>Przykład <span class = "orange">5</span></h2>
+						<p>Uruchamianie kodu oraz 'force return'</p>
+					</section>
+
+					<!-- </section> -->
 				</section>
 
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -290,7 +311,7 @@
 						<h3>'<span class = "orange">Watchpoint</span>'</h3>
 						<h4>śledzenie dostępu do zmiennej</h4>
 						<p><br/><br/><br/><br/><br/><br/><br/></p>
-						<p class="fragment"><small class="darker"><span class="orange">!</span> Dodanie takiego BP jest identyczne do standardowego - dwuklik; różnicą są opcje oraz ikonka</small></p>
+						<p class="fragment"><small class="darker"><span class="orange">!</span> Dodanie takiego BP jest identyczne do standardowego - dwuklik; różnicą są opcje oraz ikonka : [ICO]</small></p>
 					</section>
 					<section>
 						<h3>'<span class = "orange">Exception</span> BP'</h3>
@@ -299,7 +320,7 @@
 						<p class="fragment"><small class="darker"><span class="orange">!</span> Dodanie tego BP jest możliwe jedynie w widoku 'Breakpoints'; szukaj takiej ikony: [X]</small></p>
 					</section>
 					<section>
-						<h2>Przykład <span class = "orange">X</span></h2>
+						<h2>Przykład <span class = "orange">6</span></h2>
 						<p>Nietypowe breakpointy</p>
 					</section>
 					<section>
@@ -313,7 +334,7 @@
 					</section>
 
 					<section>
-						<h2>Przykład <span class = "orange">X</span></h2>
+						<h2>Przykład <span class = "orange">7</span></h2>
 						<p>...z użyciem warunków</p>
 					</section>
 				</section>
@@ -330,12 +351,12 @@
 					</section>
 
 					<section>
-						<h2>Przykład <span class = "orange">X</span></h2>
+						<h2>Przykład <span class = "orange">7</span></h2>
 						<p>połączenie do działającej JVM z opcją debbug</p>
 					</section>
 
 					<section>
-						<h2>Przykład <span class = "orange">Y</span></h2>
+						<h2>Przykład <span class = "orange">8</span></h2>
 						<p>połączenie do Wildfly / JBoss</p>
 						<p class = "fragment darker"><small>zakończone problemem ze źródłami</small></p>
 					</section>
@@ -381,6 +402,12 @@
 						<h2>Przykład <span class = "orange">Wildfly</span></h2>
 						<p>plus wykonywanie kodu - generalnie całość! Plus źródła do Hiberante np albo sterownika Postgresa!</p>
 					</section>
+				</section>
+
+				<section>
+					<h2>Prezentacja <span class="orange">online</span></h2>
+					<br/>
+					<p class = "darker fragment grow">goo.gl/<span class="orange"><b>QQhRh7</b></span></p>
 				</section>
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 			</div> <!-- end: slides -->
