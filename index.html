@@ -70,7 +70,7 @@
 
 					<section>
 						<h3><span class="orange">Nic</span> za darmo</h3>
-						<small class="darker">-agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:36203</small>
+						<small class="darker">-agentlib:jdwp=transport=dt_socket,suspend=n,server=y,address=36203</small>
 						<p class = "fragment">...mają wpływ na wydajność pracy VM !</p>
 						<p class = "fragment">...debuggowanie = zawieszanie pracy VM !</p>
 					</br>
@@ -341,14 +341,14 @@
 					<section>
 						<h2><span class="orange">Zdalne</span> debuggowanie</h2>
 						<p class="fragment">Ręczne przygotowanie debbugera:</p>
-						<p class="fragment"><span class="darker">> </span>uruchomienie dowolnego <span class="orange"><b>JVM z odpowiednimi parametrami</b></span></p>
+						<p class="fragment"><span class="darker">> </span>uruchomienie dowolnego <span class="orange"><b>JVM z odpowiednimi parametrami VM</b></span></p>
 						<p class="fragment"><span class="darker">> </span><b><span class="orange">połączenie do JVM</b> klientem - debbugerem czyli <b>Eclipsem</b></span></p>
-						<small class="fragment">Parametry VM: <span class="darker">-agentlib:jdwp=transport=dt_socket,suspend=y,address=36203</span></small>
 					</section>
 
 					<section>
 						<h2>Przykład <span class = "orange">7</span></h2>
-						<p>połączenie do działającej JVM z opcją debbug</p>
+						<p>połączenie do działającej JVM z opcją</p>
+						<p><small>-agentlib:jdwp=transport=dt_socket,suspend=n,server=y,address=36203</small></p>
 					</section>
 
 					<section>
