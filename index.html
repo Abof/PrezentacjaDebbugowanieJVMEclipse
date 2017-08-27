@@ -43,7 +43,7 @@
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 				<section>
-					<h2><img src="icons/icon_cross_32.png" class="plain" style="width:0.75em; margin:0"> De<span class="orange">bugg</span>owanie</h2>
+					<h2><img src="icons/icon_cross_32.png" class="plain" style="width:0.72em; margin:0"> De<span class="orange">bugg</span>owanie</h2>
 					<h4>kodu w JVM</h4>
 					<br/><br/><br/>
 					<!-- <p class = "darker">goo.gl/<b>QQhRh7</b></p> -->
@@ -364,7 +364,8 @@
 						<p class="fragment"><span class="darker">> </span>gdy, na zdalnej JVM, przejdziemy do <span class = "orange">linii kodu, którego nie posiadamy w Eclipse</span></p>
 						<p class="fragment"><span class="darker">> </span>gdy posiadamy <span class = "orange">inną wersję kodu</span> względem tego po którym nawigujemy w zdalnej JVM</p>
 						</br>
-						<p class="fragment"><u><b>Rozwiązanie</b></u>: dodanie źródeł w sekcji '<span class = "orange">Source Lookup</span>'</p>
+						<p class="fragment"><b>Rozwiązanie <span class = "orange">I</span></b> : dodanie źródeł w sekcji '<span class = "orange">Source Lookup</span>'</p>
+						<p class="fragment"><b>Rozwiązanie <span class = "orange">II</span></b> : tymczasowe dodanie zależności do <span class = "orange">POM-a</span></p>
 					</section>
 				</section>
 
@@ -402,9 +403,17 @@
 				</section>
 
 				<section>
-					<h2>Prezentacja <span class="orange">online</span></h2>
-					<br/>
-					<p class = "darker fragment grow"><a href="https://goo.gl/QQhRh7"><span style="color:white">goo.gl</span>/<b>QQhRh7</a></b></span></p>
+					<h3>¯\_(ツ)_/¯</h3>
+					<h3>U mnie <span class="orange">działa!</span></h3>
+					<p class="fragment smaller"><span class="darker">> </span>Upewnij się że masz zainstalowany plugin <span class = "orange">Eclipse-Class-Decompiler</span>, który bdb działa podczas dekompilacji źródeł podczas debuggowania; ściągniesz go <a href="https://github.com/cnfree/Eclipse-Class-Decompiler" target="_blank">stąd</a>; powinien mieć włączony tryb 'debugg'.</p>
+					<p class="fragment smaller"><span class="darker">></span> Jeżeli kolejne 'uruchomienie' aplikacji nie przynosi skutku - <span class = "orange">upewnij się, że poprzednie 'uruchomienie' nie 'tkwi' w trybie debugg</span> blokując serwer/wątek.</p>
+					<p class="fragment smaller"><span class="darker">></span> <span class = "orange">Pamiętaj</span> : skrajne różnice kodu na serwerze/JVM oraz tego w Eclipse mogą prowadzić do problemów podczas debuggowania; np. nieuwzględnianie breakpointów przez JVM.</p>
+					<p class="fragment smaller"><span class="darker">></span> <span class = "orange">Pamiętaj</span> : Wildfly to skomplikowany kontener - debuggowanie może prowadzić do niewystępujących 'na produkcji' anomalii (i vice versa).</p>
+				</section>
+
+				<section>
+					<h3>Prezentacja <span class="orange">online</span></h3>
+					<p class = "darker"> > <a href="https://goo.gl/QQhRh7"><span style="color:white">goo.gl</span>/<b>QQhRh7</a></b> <</span></p>
 				</section>
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 			</div> <!-- end: slides -->
