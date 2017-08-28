@@ -53,10 +53,10 @@
 
 				<section>
 					<section>
-						<h1 class="fragment shrink-much">Ciut teorii</h1>
+						<h1 class="fragment shrink-much"><span class="orange">Ciut</span> teorii</h1>
 					</section>
 					<section>
-						<h3>Debuggowanie JVM</h3>
+						<h3>Debuggowanie <span class="orange">JVM</span></h3>
 						<p class="fragment"><span class="darker">> </span><span class="orange"><b>zatrzymanie JVM</b></span> w wybranym momencie</p>
 						<p class="fragment"><span class="darker">> </span>wykonywanie kodu <span class="orange"><b>linia po linii</b></span></p>
 						<p class="fragment"><span class="darker">> </span>możliwość edycji i <span class="orange"><b>wgląd do zmiennych</b></span></p>
@@ -165,6 +165,10 @@
 						<p>Pozwala cofnąć się do początku bieżącej ramki: przywracany jest stan zmiennych a sterowanie wraca do 'początku' ramki.</p>
 					</br>
 						<p class = "fragment"><b><span style = "color:#e7ad52">!</span> Efekty wywołań metod ('efekty uboczne') nie są magicznie cofane...</b></p>
+						<aside class="notes">
+							Select the Drop to Frame command [ Drop to Frame ] to re-enter the selected stack frame in the Debug View.
+Note this command is only available if the current VM supports drop to frame and the selected stackframe is not the top frame or a frame in a native method.
+						</aside>
 					</section>
 					<section>
 						<h2>Przykład <span class = "orange">2</span></h2>
@@ -403,14 +407,30 @@
 				</section>
 
 				<section>
-					<h3>¯\_(ツ)_/¯</h3>
-					<h3>U mnie <span class="orange">działa!</span></h3>
-					<p class="fragment smaller"><span class="darker">> </span>Upewnij się że masz zainstalowany plugin <span class = "orange">Eclipse-Class-Decompiler</span>, który bdb działa podczas dekompilacji źródeł podczas debuggowania; ściągniesz go <a href="http://www.cpupk.com/decompiler/" target="_blank">stąd</a>; powinien mieć włączony tryb 'debugg'.</p>
-					<p class="fragment smaller"><span class="darker">></span> Jeżeli kolejne 'uruchomienie' aplikacji nie przynosi skutku - <span class = "orange">upewnij się, że poprzednie 'uruchomienie' nie 'tkwi' w trybie debugg</span> blokując serwer/wątek.</p>
-					<p class="fragment smaller"><span class="darker">></span> <span class = "orange">Pamiętaj</span> : skrajne różnice kodu na serwerze/JVM oraz tego w Eclipse mogą prowadzić do problemów podczas debuggowania; np. nieuwzględnianie breakpointów przez JVM.</p>
-					<p class="fragment smaller"><span class="darker">></span> <span class = "orange">Pamiętaj</span> : Wildfly to skomplikowany kontener - debuggowanie może prowadzić do niewystępujących 'na produkcji' anomalii (i vice versa).</p>
+					<section>
+						<h3>¯\_(ツ)_/¯</h3>
+						<h3>U mnie <span class="orange">działa!</span></h3>
+						<p class="fragment smaller"><span class="darker">> </span>Upewnij się że masz zainstalowany plugin <span class = "orange">Eclipse-Class-Decompiler</span>, który bdb działa podczas dekompilacji źródeł podczas debuggowania; ściągniesz go <a href="http://www.cpupk.com/decompiler/" target="_blank">stąd</a>; powinien mieć włączony tryb 'debugg'.</p>
+						<p class="fragment smaller"><span class="darker">></span> Jeżeli kolejne 'uruchomienie' aplikacji nie przynosi skutku - <span class = "orange">upewnij się, że poprzednie 'uruchomienie' nie 'tkwi' w trybie debugg</span> blokując serwer/wątek.</p>
+						<p class="fragment smaller"><span class="darker">></span> <span class = "orange">Pamiętaj</span> : skrajne różnice kodu na serwerze/JVM oraz tego w Eclipse mogą prowadzić do problemów podczas debuggowania; np. nieuwzględnianie breakpointów przez JVM.</p>
+						<p class="fragment smaller"><span class="darker">></span> <span class = "orange">Pamiętaj</span> : Wildfly to skomplikowany kontener - debuggowanie może prowadzić do niewystępujących 'na produkcji' anomalii (i vice versa).</p>
+					</section>
+					<section>
+						<h3>(╥_╥)</h3>
+						<h3>Nic nie <span class="orange">rozumiem</span>!</h3>
+						<p class="fragment smaller"><span class="darker">> </span>Korzystaj z kontekstowej pomocy Eclipse<br/>
+							<span class = "orange">'Help'</span> → <span class = "orange">'Show Contextual Help'</span><br/>
+								...a następnie kliknij w widok, który Cię interesuje.</p>
+						<p class="fragment smaller"><span class="darker">> </span>Zacznij od <span class = "orange">prostych ćwiczeń na testowym, lokalnym środowisku </span>(osobny workspace?); potem przejdź do debuggowania serwera aplikacji.</p>
+					</section>
+					<section>
+						<h3>(ﾉ◕ヮ◕)ﾉ<span class="orange">*:・ﾟ✧</span></h3>
+						<h3><span class="orange">Jeszcze</span> więcej!</h3>
+						<p class="fragment smaller"><span class="darker">> </span>Sprawdź : <span class = "orange">'Window'</span> → <span class = "orange">'Preferences'</span> → <span class = "orange">'Java'</span> → <span class = "orange">'Debug'</span></p>
+						<p class="fragment smaller"><span class="darker">> </span>Spróbuj : <span class = "orange">Widok 'Breakpoints'</span> → <span class = "orange">PPM</span> → <span class = "orange">'Import/Export Breakpoints...'</span></p>
+						<p class="fragment smaller"><span class="darker">> </span>Spróbuj : <span class = "orange">Połączenie zdalne do JVM</span> → <span class = "orange">Widok 'Debug'</span> → <span class = "orange">PPM na działającym wątku</span> → <span class = "orange">'Suspend'</span> ...przejrzyj ramki.</p>
+					</section>
 				</section>
-
 				<section>
 					<h3>Prezentacja <span class="orange">online</span></h3>
 					<p class = "darker"> > <a href="https://goo.gl/QQhRh7"><span style="color:white">goo.gl</span>/<b>QQhRh7</a></b> <</span></p>
