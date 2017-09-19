@@ -86,7 +86,7 @@
 					<section>
 						<h2>Breakpoint-y (<span style="color:#e7ad52">BP</span>)</h2>
 						<h5 class = "fragment">...definiują <span style="color:#e7ad52">zdarzenia prowadzące do wstrzymania wątku JVM</span> i przejęcie sterowania przez debuggera</h5></br>
-						<h5 class = "fragment">...najczęściej : <span style="color:#e7ad52">zdarzenie dojścia do wskazanej linii kodu</span></h5></br>
+						<h5 class = "fragment">...najczęściej : <span style="color:#e7ad52">zdarzenie dojścia do wskazanej linii kodu</span> LUB  <span style="color:#e7ad52">wejśćie / wyjście z metody</span></h5></br>
 						<h5 class = "fragment">...rzadziej : <span style="color:#e7ad52">akcje odczytu/zapisu zmiennej klasowej</span> lub <span style="color:#e7ad52">wystąpienie wyjątku</span></h5>
 						<aside class="notes">
 							todo todo todo todo todo todo todo todo todo todo todo
@@ -310,15 +310,21 @@ Note this command is only available if the current VM supports drop to frame and
 						<p class = "fragment"><b><span class="darker">> </span><span class = "orange">wystąpienie wyjątku</span> wskazanego typu</span></b></p>
 					</section>
 					<section>
-						<h3>'<span class = "orange">Watchpoint</span>'</h3>
-						<h4>śledzenie dostępu do zmiennej</h4>
-						<p><br/><br/><br/><br/><br/><br/><br/></p>
-						<p class="fragment"><small class="darker"><span class="orange">!</span> Dodanie takiego BP jest identyczne do standardowego - dwuklik; różnicą są opcje oraz ikonka <img src="img/bp_watchpoint.png" class="plain" style = "margin: 0; height: 1.1em"></small></p>
+						<h3>'<span class = "orange">Watchpoint</span>' : śledzenie dostępu do zmiennej</h3>
+						<p class = "fragment"><span class="darker">> </span>
+							dodanie takiego BP jest identyczne do standardowego - dwuklik; różnicą są opcje oraz ikonka <img src="img/bp_watchpoint.png" class="plain" style = "margin: 0; height: 1.1em">
+						</p>
+						<p class = "fragment"><span class="darker">> </span>można wskazać czy wstrzymanie JVM ma nastąpić w momencie <span class = "orange">modyfikacji</span> czy też <span class = "orange">dostępu</span> do zmiennej
+						</p>
+						<p class = "fragment"><span class="darker">> </span>analiza <span class = "orange">stosu ramek</span> pozwala szybko określić źródło modyfikacji / dostępu
+						</p>
+						<!-- <p><br/><br/><br/><br/><br/><br/><br/></p>
+						<p class="fragment"><small class="darker"><span class="orange">!</span> Dodanie takiego BP jest identyczne do standardowego - dwuklik; różnicą są opcje oraz ikonka <img src="img/bp_watchpoint.png" class="plain" style = "margin: 0; height: 1.1em"></small></p> -->
 					</section>
 					<section>
 						<h3>'<span class = "orange">Exception</span> BP'</h3>
 						<h4>reakcja na wyjątek</h4>
-						<p><br/><br/><br/><br/><br/><br/><br/></p>
+						<img class ="plain" src = "img/dodawanie_exc_bp.png" style="margin:0">
 						<p class="fragment"><small class="darker"><span class="orange">!</span> Dodanie tego BP jest możliwe jedynie w widoku 'Breakpoints'; szukaj ikony <img src="img/bp_exception.png" class="plain" style = "margin: 0; height: 1.0em"></small></p>
 					</section>
 					<section>
@@ -352,17 +358,15 @@ Note this command is only available if the current VM supports drop to frame and
 					</section>
 
 					<section>
-						<h2>Przykład <span class = "orange">7</span></h2>
+						<h2>Przykład <span class = "orange">8</span></h2>
 						<p>połączenie do działającej JVM z opcją</p>
 						<p><small>-agentlib:jdwp=transport=dt_socket,suspend=n,server=y,address=36203</small></p>
 					</section>
 
 					<section>
-						<h2>Przykład <span class = "orange">8</span></h2>
-						<p>połączenie do Wildfly / JBoss</p>
-						<p class = "fragment darker"><small>zakończone problemem ze źródłami</small></p>
+						<h2>Przykład <span class = "orange">9</span></h2>
+						<p><br/>Połączenie do Wildfly / JBoss</p>
 					</section>
-
 
 					<section>
 						<h2>Problemy ze <span class = "orange">źródłami</span></h2>
@@ -401,10 +405,10 @@ Note this command is only available if the current VM supports drop to frame and
 						<p class="fragment"><span class="darker">> </span>Gdy blok będzie zwracał na sztywno <code>false</code> - <span class = "orange"><b>nie dojdzie do zatrzymania JVM ale pozostały kod z bloku automatycznie zostanie wykoanny</b></span>!</p>
 					</section>
 
-					<section>
+					<!-- <section>
 						<h2>Przykład <span class = "orange">Wildfly</span></h2>
 						<p>plus wykonywanie kodu - generalnie całość! Plus źródła do Hiberante np albo sterownika Postgresa!</p>
-					</section>
+					</section> -->
 				</section>
 
 				<section>
@@ -464,6 +468,12 @@ Note this command is only available if the current VM supports drop to frame and
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
+			           Reveal.configure({
+                  keyboard: {
+                    40: 'next', // go to the next slide when the ENTER key is pressed
+                    38: 'prev'
+                  }
+                });
 
 		</script>
 
