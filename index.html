@@ -53,7 +53,7 @@
 
 				<section>
 					<section>
-						<h1 class="fragment shrink-much"><span class="orange">Ciut</span> teorii</h1>
+						<h2><span class="orange">Ciut</span> teorii</h2>
 					</section>
 					<section>
 						<h3>Debuggowanie <span class="orange">JVM</span></h3>
@@ -88,18 +88,25 @@
 						<h5 class = "fragment">...definiują <span style="color:#e7ad52">zdarzenia prowadzące do wstrzymania wątku JVM</span> i przejęcie sterowania przez debuggera</h5></br>
 						<h5 class = "fragment">...najczęściej : <span style="color:#e7ad52">zdarzenie dojścia do wskazanej linii kodu</span> LUB  <span style="color:#e7ad52">wejśćie / wyjście z metody</span></h5></br>
 						<h5 class = "fragment">...rzadziej : <span style="color:#e7ad52">akcje odczytu/zapisu zmiennej klasowej</span> lub <span style="color:#e7ad52">wystąpienie wyjątku</span></h5>
-						<aside class="notes">
-							todo todo todo todo todo todo todo todo todo todo todo
-						</aside>
+					</section>
+					<section>
+						<h2>Dodawanie podstawowych <span style="color:#e7ad52">BP</span></h2>
+							<p class = "fragment"><b><span class="darker">> </span><span class="orange">dwu-klik</span> w linijce z wykonywalneym kodem</b></p>
+							<p class = "fragment"><b><span class="darker">> </span>gdy <span class="orange">w nagłówku metody</span> : możliwość wyboru typu BP</b> <span class="darker">(entry/exit)</span></p>
+							<p class = "fragment"><b><span class="darker">> </span>gdy <span class="orange">w linii z definicją zmiennej klasowej</span> : możwość wyboru zdarzenia</b> <span class="darker">(odczyt/zmiana wartości); tzw. 'watchpoint'</span></p>
 					</section>
 				</section>
 
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
 				<section>
 					<section>
 						<h2>Nawigacja</h2>
-						<h4 class = "orange">podczas debuggowania</h4></br>
+						<h4 class = "orange">(kierunki)</h4></br>
+						<img class ="fragment plain" src = "img/nawigacja_kierunki.png" style="margin:0">
+					</section>
+					<section>
+						<h2>Nawigacja</h2>
+						<h4 class = "orange">podstawowe kroki</h4></br>
 						<table>
 							<tbody>
 								<tr class = "fragment">
@@ -271,7 +278,7 @@ Note this command is only available if the current VM supports drop to frame and
 						podczas debuggowania <span class = "darker">(<i>javax.*</i>, <i>java.util.*</i>)</span>.</p> -->
 						<h3>Sandbox <span class = "orange">'Display'</span></h3>
 						<p class="fragment">...jest miejscem, w którym możemy <span class="orange">wykonać</span> bądź <span class="orange">zewaluować</span> dowolny kod - również taki ze 'skutkami ubocznymi'.</p>
-						<p class="fragment">...kluczowe są ikony <img src="img/display_eval.png" class="plain" style = "margin: 0; width:0.85em"> oraz <img src="img/display_exec.png" class="plain" style = "margin: 0;width:0.85em"> służące do wykonania zaznaczonego w oknie kodu</p>
+						<p class="fragment">...kluczowe są ikony <img src="img/display_eval.png" class="plain" style = "margin: 0; width:0.85em"> oraz <img src="img/display_exec.png" class="plain" style = "margin: 0;width:0.85em"> służące do wykonania <span class="orange">zaznaczonego</span> w oknie kodu</p>
 						</br>
 						<p class="fragment"><small class="darker"><span class="orange">!</span> Opcja 'execute' jest też dostępna dla zaznaczonego tekstu w standardowym edytorze pod PPM</small></p>
 					</section>
