@@ -91,9 +91,9 @@
 					</section>
 					<section>
 						<h2>Dodawanie podstawowych <span style="color:#e7ad52">BP</span></h2>
-							<p class = "fragment"><b><span class="darker">> </span><span class="orange">dwu-klik</span> w linijce z wykonywalneym kodem</b></p>
-							<p class = "fragment"><b><span class="darker">> </span>gdy <span class="orange">w nagłówku metody</span> : możliwość wyboru typu BP</b> <span class="darker">(entry/exit)</span></p>
-							<p class = "fragment"><b><span class="darker">> </span>gdy <span class="orange">w linii z definicją zmiennej klasowej</span> : możwość wyboru zdarzenia</b> <span class="darker">(odczyt/zmiana wartości); tzw. 'watchpoint'</span></p>
+							<p class = "fragment"><b><span class="darker">> </span><span class="orange">dwu-klik</span> w linijce z wykonywalnym kodem</b></p>
+							<p class = "fragment"><b><span class="darker">> </span>gdy <span class="orange">w nagłówku metody</span> : możliwość wyboru momentu BP metody</b> <span class="darker">(entry/exit)</span></p>
+							<p class = "fragment"><b><span class="darker">> </span>gdy <span class="orange">w linii z definicją zmiennej klasowej</span> : możliwość wyboru zdarzenia dot. zmiennej</b> <span class="darker">(odczyt/zmiana wartości); tzw. 'watchpoint'</span></p>
 					</section>
 				</section>
 
@@ -138,10 +138,10 @@
 					</section>
 					<section>
 						<h2>Udogodnienia</h2>
-						<p class="fragment"><span class="darker">> </span><b><u>Step filter</u></b> <img src="img/db_step_filter.png" class="plain" style = "margin: 0; height:0.85em"> : pozwala zdefiniować klasy lub całe pakiety, które będą pomijane podczas debuggowania <span class = "darker">(<i>javax.*</i>, <i>java.util.*</i>)</span>.</p>
-						<p class="fragment"><span class="darker">> </span><b><u>Run to line</u></b> <img src="img/db_run_to_line.png" class="plain" style = "margin: 0; height:0.85em"> : pozwala na natychmiastowe przejście do wskazanej kursorem linii.</p>
-						<p class="fragment"><span class="darker">> </span><b><u>Step into selection</u></b> : pozwala 'wejść' we wskazaną kursorem metodę<span class="fragment">; np: <span class = "darker">
-							<code>a.getB().getC().<span style="color:#e7ad52">doIt()</span>.fire()</code></span></span></p>
+						<p class="fragment"><span class="darker">> </span><b>Step filter</b> <img src="img/db_step_filter.png" class="plain" style = "margin: 0; height:0.85em"> : pozwala zdefiniować klasy lub całe pakiety, które będą pomijane podczas debuggowania <span class = "darker">(<i>javax.*</i>, <i>java.util.*</i>)</span>.</p>
+						<p class="fragment"><span class="darker">> </span><b>Run to line</b> <img src="img/db_run_to_line.png" class="plain" style = "margin: 0; height:0.85em"> : pozwala na natychmiastowe przejście do wskazanej kursorem linii.</p>
+						<p class="fragment"><span class="darker">> </span><b>Step into selection</b> : pozwala 'wejść' we wskazaną kursorem metodę; np: <span class = "darker">
+							<code>a.getB().getC().<span style="color:#e7ad52">doIt()</span>.fire()</code></span></p>
 					</section>
 				</section>
 
@@ -192,28 +192,28 @@ Note this command is only available if the current VM supports drop to frame and
 						<p class="fragment"><span class="darker">> </span><b>Widok <span class="orange">'<u>Variables</u>'</span> :</b> służy do inspekcji zmiennych oraz ich struktur</p>
 						<p class="fragment"><span class="darker">> </span><b>Widok <span class="orange">'<u>Expressions</u>'</span> :</b> służy do automatycznej ewaluacji wyrażeń opartych na zmiennych</p>
 						<br/>
-						<p class="fragment"><small class="darker"><span class="orange">!</span> Kontekstem tych widoków jest aktualna ramka; widoki zmieniają się wraz ze wsazaniem lub przejściem do innej ramki.</small></p>
+						<p class="fragment"><small class="darker"><span class="orange">!</span> Kontekstem tych widoków jest aktualna ramka; widoki zmieniają się wraz ze wskazaniem lub przejściem do innej ramki.</small></p>
 					</section>
 					<section>
 						<h3>Udogodnienia</h3>
-						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'<u>Inspect</u>'</span></b><span class ="darker"> (również pod PPM)</span></p>
-						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'<u>Instances count</u>'</span></b><span class ="darker"> (również pod PPM)</span></p>
-						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'<u>All instances</u>'</span></b><span class ="darker"> (również pod PPM)</span></p>
-						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'<u>All references</u>'</span></b></p>
-						<p class="fragment"><span class="darker">> </span><b>Przełączanie 'na' <span class="orange"><u>inne ramki</u></span> ze stosu</b></p>
-						<p class="fragment"><span class="darker">> </span><b><span class="orange">'<u>Details Formatter</u>'</span></b></p>
+						<p class="fragment"><span class="darker">> </span><b>Podgląd zmiennej po <span class="orange">najechaniu</span> kursorem</b><span class ="darker"></p>
+						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'Inspect'</span></b><span class ="darker"> (również pod PPM)</span></p>
+						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'Instances count'</span></b><span class ="darker"> (również pod PPM)</span></p>
+						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'All instances'</span></b><span class ="darker"> (również pod PPM)</span></p>
+						<p class="fragment"><span class="darker">> </span><b>Opcja <span class="orange">'All references'</span></b></p>
+						<p class="fragment"><span class="darker">> </span><b>Przełączanie 'na' <span class="orange">inne ramki</span> ze stosu</b></p>
 					</section>
 					<section>
 						<h2>Przykład <span class = "orange">3</span></h2>
 						<p>Inspekcja zmiennych</p>
 					</section>
 					<section>
-						<h3>'Details Formatter'</h3>
+						<h3>Details <span class="orange">Formatter</span></h3>
 						<p>...jest to swoisty <b><code class="orange">'toString()'</code></b> używany do wyświetlania użytecznego podglądu obiektu podczas debugowania.</p>
 						<br/>
 						<p class = "fragment">Alternatywa dla: <code class="darker">'Object@ba8a1dc'</code></p>
 						<br/>
-						<p class = "fragment darker"><small><span class = "orange">!</span> Dostępne w 'Preferences' -> 'Debug' lub pod PPM podczas debuggowania</small></p>
+						<p class = "fragment darker"><small><span class = "orange">!</span> Dostępne w 'Preferences' -> 'Debug' lub pod PPM na obiekcie / klasie w edytorze lub widoku 'Variables'</small></p>
 					</section>
 				</section>
 
@@ -249,8 +249,8 @@ Note this command is only available if the current VM supports drop to frame and
 					<section>
                     	<h3><span class = "orange">Po co</span> to komu?</h3>
                     	<p class="fragment"><span class="darker">> </span>reprodukcja błędów</p>
-                    	<p class="fragment"><span class="darker">> </span>sterowanie przepływem kodu aby osiągnąć zamierzony cel <span class = "darker">(np. dla celów scenariuszy testowych)</span></p>
-                      	<p class="fragment"><span class="darker">> </span>u<span class = "orange">nie</span>zależnienie się od cudzych implementacji <span class = "darker">(też: błędów w kodzie)</span></p>
+                    	<p class="fragment"><span class="darker">> </span>sterowanie przepływem kodu aby osiągnąć zamierzony cel <span class = "darker">(np. odtwarzanie scenariuszy testowych)</span></p>
+                      	<p class="fragment"><span class="darker">> </span>u<span class = "orange">nie</span>zależnienie się od cudzych implementacji <span class = "darker">(oraz błędów w kodzie)</span></p>
                     	<p class="fragment"><span class="darker">> </span>testowanie kodu</p>
 					</section>
 					<section>
@@ -285,6 +285,7 @@ Note this command is only available if the current VM supports drop to frame and
 
 					<section>
 						<h3>Force <span class="orange">return</span></h3>
+						<h4 class = "darker">(z poziomu widoku 'Display')</h4>
 						<p>...pozwala <span class="orange">wymusić</span> natychmiastowe zwrócenie wskazanej wartości przez aktywną metodę (ramkę)</p>
 						</br>
 						<p class="fragment"><small class="darker"><span class="orange">!</span> Opcja 'force return' jest też dostępna pod PPM w kilku miejscach dla metod typu 'void'</small></p>
@@ -294,7 +295,7 @@ Note this command is only available if the current VM supports drop to frame and
 					<section>
                     	<h3>A <span class = "orange">to</span> po co komu?</h3>
                     	<p class="fragment"><span class="darker">> </span>po to samo po co podmiana zmiennych</p>
-                    	<h4 class="fragment">A <u>szczególnie</u>:</h4>
+                    	<h4 class="fragment">A szczególnie:</h4>
                       	<p class="fragment"><span class="darker">> </span>do <span class="orange">prototypowania</span> rozwiązań problemów</p>
                       	<p class="fragment"><span class="darker">> </span>do wykonywania<span class="orange"> skomplikowanych</span>  / <span class="orange">masowych</span> modyfikacji (np. dla całych kolekcji itp.)</p>
 					</section>
@@ -380,8 +381,8 @@ Note this command is only available if the current VM supports drop to frame and
 						<p class="fragment"><span class="darker">> </span>gdy, na zdalnej JVM, przejdziemy do <span class = "orange">linii kodu, którego nie posiadamy w Eclipse</span></p>
 						<p class="fragment"><span class="darker">> </span>gdy posiadamy <span class = "orange">inną wersję kodu</span> względem tego po którym nawigujemy w zdalnej JVM</p>
 						</br>
-						<p class="fragment"><b>Rozwiązanie <span class = "orange">I</span></b> : dodanie źródeł w sekcji '<span class = "orange">Source Lookup</span>'</p>
-						<p class="fragment"><b>Rozwiązanie <span class = "orange">II</span></b> : tymczasowe dodanie zależności do <span class = "orange">POM-a</span></p>
+						<p class="fragment"><b>Rozwiązanie <span class = "orange">I</span></b> : dodanie zależności do <span class = "orange">POM-a</span> projektu powiązanego z debuggerem</p>
+						<p class="fragment"><b>Rozwiązanie <span class = "orange">II</span></b> : dodanie źródeł w sekcji '<span class = "orange">Source Lookup</span>'</p>
 					</section>
 				</section>
 
@@ -396,7 +397,7 @@ Note this command is only available if the current VM supports drop to frame and
 						<h3>TRIK <span class = "orange">Automatyczne wykonywanie kodu w BP</span></h3>
 						<p class="fragment"><span class="darker">> </span>Warunki dla BP mogą być blokami kodu - na ich końcu nalezy zwrócić <code>true</code> lub <code>false</code>.</p>
 						<p class="fragment"><span class="darker">> </span>Kod przed instrukcją <code>return</code> może być dowolny.</p>
-						<p class="fragment"><span class="darker">> </span>Gdy blok będzie zwracał na sztywno <code>false</code> - <span class = "orange"><b>nie dojdzie do zatrzymania JVM ale pozostały kod z bloku automatycznie zostanie wykoanny</b></span>!</p>
+						<p class="fragment"><span class="darker">> </span>Gdy blok będzie zwracał na sztywno <code>false</code> - <span class = "orange"><b>nie dojdzie do zatrzymania JVM ale pozostały kod z bloku automatycznie zostanie wykonany</b></span>!</p>
 					</section>
 
 					<section>
@@ -407,15 +408,12 @@ Note this command is only available if the current VM supports drop to frame and
 
 					<section>
 						<h3>TRIK <span class = "orange">Trigger BP</span></h3>
-						<p class="fragment"><span class="darker">> </span>Warunki dla BP mogą być blokami kodu - na ich końcu nalezy zwrócić <code>true</code> lub <code>false</code>.</p>
-						<p class="fragment"><span class="darker">> </span>Kod przed instrukcją <code>return</code> może być dowolny.</p>
-						<p class="fragment"><span class="darker">> </span>Gdy blok będzie zwracał na sztywno <code>false</code> - <span class = "orange"><b>nie dojdzie do zatrzymania JVM ale pozostały kod z bloku automatycznie zostanie wykoanny</b></span>!</p>
+						<p class="fragment"><span class="darker">> </span> TODO...</p>
+						<p class="fragment"><span class="darker">> </span> TODO...</p>
+						<p class="fragment"><span class="darker">> </span> TODO...</p>
+						<p class="fragment"><span class="darker">> </span> TODO...</p>
+						<p class="fragment"><span class="darker">> </span> TODO...</p>
 					</section>
-
-					<!-- <section>
-						<h2>Przykład <span class = "orange">Wildfly</span></h2>
-						<p>plus wykonywanie kodu - generalnie całość! Plus źródła do Hiberante np albo sterownika Postgresa!</p>
-					</section> -->
 				</section>
 
 				<section>
