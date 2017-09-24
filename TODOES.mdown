@@ -1,0 +1,5 @@
+# Co jest jeszcze do zrobienia / poprawienia (od najistotniejszej sprawy)?
+
+* jak dodać połączenie ze zdalną JVM (animacja! + opis "na")
+* grafika / animacja jak dować BP
+* przykłady kod + opis (mdown?)
