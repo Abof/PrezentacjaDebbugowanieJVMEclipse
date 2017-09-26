@@ -2,12 +2,12 @@
 
 ### SLAJDY / TEKST / OPISY:
 * przykłady kod + opis (mdown?)
-* dodać gdzieś na koniec opis perspektywy lub widoki!
 * dodać poradę z Filter dla Exception BP
-* dodać gdzieś pod koniec INFO, że wiele z udogodnien jest dostepnych po PPM !
+* ~~dodać gdzieś pod koniec INFO, że wiele z udogodnien jest dostepnych po PPM !~~
+* opisac TRIK Trigger BP
 
 ### GRAFICZNE:
-* dodać gdzieś do DP lub BP cz.II widok Breakpoints! (animacja z dodwaniem 3 typów BP?)
-* jak dodać połączenie ze zdalną JVM (animacja! + opis "na")
-* dodać grafikę z waunkowym BP
+* ~~dodać gdzieś do DP lub BP cz.II widok Breakpoints! (animacja z dodwaniem 3 typów BP?)~~
+* ~~jak dodać połączenie ze zdalną JVM (animacja! + opis "na")~~
+* ~~dodać grafikę z waunkowym BP~~
 * grafika / animacja jak dodawać BP

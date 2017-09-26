@@ -95,6 +95,16 @@
 							<p class = "fragment"><b><span class="darker">> </span>gdy <span class="orange">w nagłówku metody</span> : możliwość wyboru momentu BP metody</b> <span class="darker">(entry/exit)</span></p>
 							<p class = "fragment"><b><span class="darker">> </span>gdy <span class="orange">w linii z definicją zmiennej klasowej</span> : możliwość wyboru zdarzenia dot. zmiennej</b> <span class="darker">(odczyt/zmiana wartości); tzw. 'watchpoint'</span></p>
 					</section>
+
+					<section data-background-video="vidios/dodawanie_podst_BP.mp4" data-background-color="#000000" data-background-video-loop="loop">
+						<div style="background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 1px; margin: 1px;">
+							<p style="font-size:0.7em"><span class = "orange"><b>!</b></span> Oglądasz Eclips-owe '<b>Jak dodawać podstawowe BP</b>'<span class = "orange"> <b>!</b></span></p>
+						</div>
+					<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+					</section>
+
+
+
 				</section>
 
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -106,7 +116,8 @@
 					</section>
 					<section>
 						<h2>Nawigacja</h2>
-						<h4 class = "orange">podstawowe kroki</h4></br>
+						<h4 class = "orange">podstawowe kroki</h4>
+						<p class = "darker"><small>(gdy już się zatrzymasz)</small></p>
 						<table>
 							<tbody>
 								<tr class = "fragment">
@@ -151,13 +162,13 @@
 					<section data-background="img/widok_debug.png">
 						<h2>Widok <span class = "orange">'Debug'</span></h2>
 						<div class = "fragment fade-out" data-fragment-index="4">
-							<div class = "fragment" data-fragment-index="1" style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
+							<div class = "fragment" data-fragment-index="1" style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px; margin: 20px;">
 								<h5><span class="darker">> </span><span class="orange">JVM</span>, których nasłuchujemy w trybie debugg</h5>
 							</div>
-							<div class = "fragment" data-fragment-index="2" style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px;margin: 20px;">
+							<div class = "fragment" data-fragment-index="2" style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;margin: 20px;">
 								<h5><span class="darker">> </span>wszystkie <span class="orange">wątki</span> działające w ramach JVM</h5>
 							</div>
-							<div class = "fragment" data-fragment-index="3" style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px;margin: 20px;">
+							<div class = "fragment" data-fragment-index="3" style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;margin: 20px;">
 								<h5><span class="darker">> </span>zawieszony wątek, w ramach którego debuggujemy <span style = "color:#e7ad52">wraz ze stosem ramek</span> oraz lock-ami, które posiada</h5>
 							</div>
 						</div>
@@ -229,23 +240,23 @@ Note this command is only available if the current VM supports drop to frame and
 						</aside>
 					</section>
 					<section data-background-video="vidios/mod_prym_edit.mp4" data-background-color="#000000" data-background-video-loop="loop">
-						<div style="background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 20px; margin: 20px;">
-							<h5>'<span class = "orange">Variables</span>' : mod. typu prymitywnego</h5>
-						</div>
-						<p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
-					</section>
-					<section data-background-video="vidios/mod_obiekt_proste_edit.mp4" data-background-color="#000000" data-background-video-loop="loop">
-						<div style="background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 20px; margin: 20px;">
-                            <h5>'<span class = "orange">Variables</span>' : prosta podmiana obiektu (oraz jego zmiennych)</h5>
-                        </div>
-                        <p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
-					</section>
-					<section data-background-video="vidios/mod_obiekt_zlozone_edit.mp4" data-background-color="#000000" data-background-video-loop="loop">
-						 <div style="background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 20px; margin: 20px;">
-                            <h5>'<span class = "orange">Variables</span>' : złożona podmiana obiektu</h5>
-                        </div>
-                        <p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
-					</section>
+							<div style="background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 20px; margin: 20px;">
+								<h5>'<span class = "orange">Variables</span>' : mod. typu prymitywnego</h5>
+							</div>
+							<p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+						</section>
+						<section data-background-video="vidios/mod_obiekt_proste_edit.mp4" data-background-color="#000000" data-background-video-loop="loop">
+							<div style="background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 20px; margin: 20px;">
+	                            <h5>'<span class = "orange">Variables</span>' : prosta podmiana obiektu (oraz jego zmiennych)</h5>
+	                        </div>
+	                        <p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+						</section>
+						<section data-background-video="vidios/mod_obiekt_zlozone_edit.mp4" data-background-color="#000000" data-background-video-loop="loop">
+							 <div style="background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 20px; margin: 20px;">
+	                            <h5>'<span class = "orange">Variables</span>' : złożona podmiana obiektu</h5>
+	                        </div>
+	                        <p><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+						</section>
 					<section>
                     	<h3><span class = "orange">Po co</span> to komu?</h3>
                     	<p class="fragment"><span class="darker">> </span>reprodukcja błędów</p>
@@ -337,7 +348,8 @@ Note this command is only available if the current VM supports drop to frame and
 					</section>
 					<section>
 						<h2>Przykład <span class = "orange">6</span></h2>
-						<p>Nietypowe breakpointy</p>
+						<p>'wyjątkowy' BP</p>
+						<p class = "darker"><small><b>;)</b></small></p>
 					</section>
 					<section>
 						<h2><span class = "orange">Warunkowe</span> BP</h2>
@@ -351,7 +363,7 @@ Note this command is only available if the current VM supports drop to frame and
 
 					<section>
 						<h2>Przykład <span class = "orange">7</span></h2>
-						<p>...z użyciem warunków</p>
+						<p>warunkowe BP</p>
 					</section>
 				</section>
 
@@ -360,9 +372,28 @@ Note this command is only available if the current VM supports drop to frame and
 				<section>
 					<section>
 						<h2><span class="orange">Zdalne</span> debuggowanie</h2>
-						<p class="fragment">Ręczne przygotowanie debbugera:</p>
-						<p class="fragment"><span class="darker">> </span>uruchomienie dowolnego <span class="orange"><b>JVM z odpowiednimi parametrami VM</b></span></p>
-						<p class="fragment"><span class="darker">> </span><b><span class="orange">połączenie do JVM</b> klientem - debbugerem czyli <b>Eclipsem</b></span></p>
+						<p class="fragment">Przygotowania:</p>
+						<div class="fragment">
+							<p ><span class="darker">> </span>uruchomienie dowolnego <span class="orange"><b>JVM z odpowiednimi parametrami VM</b></span></p>
+							<p><small class="darker">-agentlib:jdwp=transport=dt_socket,suspend=n,server=y,address=XYWZ</small></p>
+						</div>
+
+						<p class="fragment"><span class="darker">> </span><b><span class="orange">połączenie do JVM</b> klientem - debbugerem czyli <b>Eclips-em</b></span></p>
+					</section>
+
+					<section data-background-video="vidios/w_dod_pol_zdalnego.mp4" data-background-color="#000000" data-background-video-loop="loop">
+						<div class = "fragment" data-fragment-index="1" style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
+							<h5><span class="darker">> </span><span class="orange">BP</span> zdefiniowane w Eclipse zostaną zsynchronizowane ze zdalną JVM</h5>
+						</div>
+						<div class = "fragment" data-fragment-index="2" style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px;margin: 20px;">
+							<h5><span class="darker">> </span>po połączeniu '<span class="orange">szturchnij</span>' zdalną JVM - musi wykonać linię kodu z jedenym z BP</h5>
+						</div>
+						<div class = "fragment" data-fragment-index="3" style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px;margin: 20px;">
+							<h5><span class="darker">> </span>po powyższym <span class="orange">zdalna JVM przekaże sterowanie</span> debuggowaniem do Eclipse</h5>
+						</div>
+						<div style="background-color: rgba(0, 0, 0, 0.3); color: #fff; padding: 1px; margin: 1px;">
+							<p><small><span class = "orange"><b>!</b></span> Oglądasz Eclips-owe 'Jak połączyć się debuggerem do zdalnej JVM'<span class = "orange"> <b>!</b></span></small></p>
+						</div>
 					</section>
 
 					<section>
@@ -439,6 +470,7 @@ Note this command is only available if the current VM supports drop to frame and
 						<p class="fragment smaller"><span class="darker">> </span>Sprawdź : <span class = "orange">'Window'</span> → <span class = "orange">'Preferences'</span> → <span class = "orange">'Java'</span> → <span class = "orange">'Debug'</span></p>
 						<p class="fragment smaller"><span class="darker">> </span>Spróbuj : <span class = "orange">Widok 'Breakpoints'</span> → <span class = "orange">PPM</span> → <span class = "orange">'Import/Export Breakpoints...'</span></p>
 						<p class="fragment smaller"><span class="darker">> </span>Spróbuj : <span class = "orange">Połączenie zdalne do JVM</span> → <span class = "orange">Widok 'Debug'</span> → <span class = "orange">PPM na działającym wątku</span> → <span class = "orange">'Suspend'</span> ...przejrzyj ramki.</p>
+						<p class="fragment smaller"><span class="darker">> </span>Zbadaj : <span class = "orange">PPM</span> → podczas debuggowania pod prawym przyciskiem kryje się wiele <span class = "orange">skrótów i opcji!</span></p>
 					</section>
 				</section>
 				<section>
