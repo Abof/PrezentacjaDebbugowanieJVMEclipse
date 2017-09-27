@@ -113,3 +113,52 @@ Kolejne kroki ćwiczenia:
    - jak tylko lista rat klienta zostanie pobrana - zmienna `installmentsForUser` - zauważ w widoku *Variables*, że zawiera ona `null`-e; dostań się do nich i podmień je używając konstruktora `new Integer(0)`
    - w konstrukcji `for` pod koniec metody dodaj stosowne *expressions* i spróbuj dojść do tego w czym tkwi problem zgłaszany przez *"bizes"*
 - Zakończ debuggowanie
+
+-----
+
+## [Przykład 5] : Uruchamianie kodu + force return
+Kod: `P4_Modyfikacja_Zmiennych_Lottery`
+
+Upewnij się, że:
+- wykonałeś poprzednie ćwiczenie - teraz czas na przejście przez ten sam kod ale z użyciem innych mechanizmów
+- w perspektywnie *Debug* masz dodany widok *Display*
+
+Kolejne kroki ćwiczenia:
+- Przejdź do wnętrza metody `makeDreamsComeTrue()`
+- Przejdź do wnętrza metody `checkIfOprInGroup()`
+  - po zaincjalizowaniu `oprCtx` a przed `if`-em - przetestuj poprzez ewaluację w widoku *Debug* czy jestesś w odpowienidj grupie; przekopiuj warunek z `if`-a do *Display*; zaznacz kod i do ewaluuj przyciskiem ![](img/display_eval.png)
+  - dodaj odpowiednią grupę do kontekstu poprzez wykonanie kodu w *Display*; poniższy kod wklej, zaznacz i wykonaj przyciskiem ![](img/display_exec.png) (zwróć uwagę na testowe *"sysouty"*):
+    ```
+    System.out.println(oprCtx.getGroups());
+    oprCtx.getGroups().add(1234);
+    System.out.println(oprCtx.getGroups());
+    ```
+  - wróć do metody `makeDreamsComeTrue()`
+- Wywołaj metodę *"z innej beczki*" - w *Display* ewaluuj kilkukrotnie np. `drawUserId()`
+- Wejdź do pierwszej linii metody `drawUserId()` w momencie inicjalizowania zmiennej `winnerId`
+  - wymuś natychmiastowe zwrócenie wartości `12` **!** poprzez wpisanie jej w *Display* zaznaczeniu, *PPM* -> *Force Return*
+- Podobnie - wejdź do pierwszej linii `checkForUser(..)` i ponownie wymuś natychmiastowe zwrócenie wyniku; tym razem jest to obiekt; posiłkując się kodem z metody, w *Display*, przygotuj obiekt a na końcu zwróć ją przez `return`; zaznacz kod, *PPM* -> *Force Return*; kod:
+    ```
+    CheckingResult cr = new CheckingResult();
+    cr.type = NO_RESTRICTIONS;
+    return cr;
+    ```
+- Kontynnuj debuggowanie aż do momentu przypisania listy rat do zmiennej `installmentsForUser`; zwróć uwagę, że lista zawiera `null`-e
+- W widoku *Display* wykonaj *testowy* kod modyfikujący, w ramach osobnej listy, kolkcję rat:
+  ```
+  List<Integer> correctList = new java.util.ArrayList<>();
+  for (Integer inst : installmentsForUser) {
+    correctList.add( inst == null ? new Integer(0) : inst );
+  };
+  System.out.println(correctList);
+  ```
+- Jeżeli powyższe wykonanie tworzy poprawną listę dodaj do kodu linię podmieniającą listy `installmentsForUser = correctList;` ; uruchom kod; kontynuuj debuggowanie
+- Zakończ debuggowanie
+
+
+
+
+
+
+
+
