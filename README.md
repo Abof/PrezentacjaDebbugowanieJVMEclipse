@@ -179,8 +179,21 @@ Kolejne kroki ćwiczenia:
 ## [Przykład 7] : Warunkowe BP
 Kod: `P7_Warunkowy_BP_ProcessingLoop`
 
-  
+> Wyobraź sobie, że chcesz przeanalizować kod który jest wywoływany mnóswo razy; Ciebie interesuje tylko jedno z wywołań - dla konkretnych argumentów/zmiennych...
 
+Kolejne kroki ćwiczenia:
+- Uruchom przykład; spróbuj przeanalizować kod
+- Dodaj BP w metodzie `main` , wewnątrz pętli - w linii `p.process(inst);`
+- Spróbuj, używając podglądu zmiennych i przycisku *Resume* *"zapolować"* na wywołanie metody `process(..)` dla obiektu klasy `Installment` z polem `amount` równym `123` oraz polem `type` równym `InstallmentType.VARIABLE`
+- Stwierdź, że jest to mozolne
+- Przerwij debuggowanie
+- Znajdź dodany BP w widoku *Berakpoints* -> *PPM* -> Zaznacz checkbox *Conditional* i w polu poniżej wpisz warunek, który ewaluuje się do `true`/`false`:
+  ```
+  inst.amount == 123 && inst.type.equals(p7.repos.InstallmentType.VARIABLE)
+  ```
+- Zapisz zmiany (*Apply and Close*)
+- Ponownie uruchom debuggowanie; gdy debugger się zatrzyma - sprawdź czy zgadzają się warunki zatrzymania
+- Zakończ debuggowanie
 
 
 
