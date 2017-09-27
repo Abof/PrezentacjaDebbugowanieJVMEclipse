@@ -1,4 +1,5 @@
 # PrezentacjaDebbugowanieJVMEclipse
+Prezentację znajdziesz tu: https://abof.github.io/PrezentacjaDebbugowanieJVMEclipse
 ## Opis przykładów
 :heavy_check_mark: Kod źródłowy do przykładów znajdziesz w folderze `src_przykladow`. Każdy z nich jest maven-owym projektem, który można bez problemów zaimportować do Eclipse.
 
@@ -28,6 +29,7 @@ Kolejne kroki ćwiczenia:
 - **Przerwij debuggowanie** : poprzednie kroki miały pokazać pewne niedogodności w debuggowaniu; zaraz to naprawisz.
 - Włącz *step filtering*; w ustawieniach Eclipse zapoznaj się z zakładką *Step filtering* a nastepnie zaznacz wysztkie pakiety oraz wszystkie checkboxy
 - Powtórz debuggowanie z użyciem wymienionych w prezentacji udogodnień (*step filtering*, *run to line*, *step into selection*)
+- Zakończ debuggowanie
 
 -----
 
@@ -46,7 +48,7 @@ Kolejne kroki ćwiczenia:
   - Ponownie pozwól dodać kilka elementów do listy...
   - Ponów *drop to frame* wg tego schematu kilkukrotnie; zwróć uwagę, że lista zostaje uzupełniana nadmiarowymi elementami!
   - Wycisz BP i dojdź do końca działania aplikacji; zwróć uwagę na logi potwierdzające, że efekt uboczny w postaci niepotrzebnego zasilania listy tymi samymi elementami miał miejsce.
-
+  - Zakończ debuggowanie
 -----
 
 ## [Przykład 3] : Inspekcja zmiennych
@@ -65,4 +67,22 @@ Kolejne kroki ćwiczenia:
 - będąc już w metodzie `dispatchTicket(..)`:
   - w jej ostatniej linijce dodaj BP; metoda jest wywoływana w pętli; będziemy sprawdzać kolejne wywołania tej metody
   - użyj przycisku *resume* i podglądaj istotne dane w widoku *Variables*; pamiętaj, że obiekty to *"drzewka"*, które można rozwijać; mowa o danych:
-    - asdasd
+    - `ticket` -> pole `domian`
+    - `wiselyChoosenProgrammer` -> `name`
+    - `wiselyChoosenProgrammer` -> `mainDomain`
+    - `programmerIdx`
+  - ponieważ podgląd konkretnych danycj w widoku *Variables* jest mało wygodny dodaj do widoku *Expressions* poniższe wyrażenia i kontynuuj podgląd kolejnych kroków iteracji w widoku *Expressions*:
+    - `ticket.domain.name`
+    - `wiselyChoosenProgrammer.name + "(" + wiselyChoosenProgrammer.mainDomain + ")"`
+    - `programmerIdx`
+  - **Zauważ**, że występuje problem; prawdopodobnie lista programistów rośnie; zbadajmy to poprzez:
+    - Zaznaczenie w edytorze jakiegokolwiek wystąpienia nazwy klasy `Progmrammer` -> *PPM* -> *InstancesCount*
+    - Zaznaczenie w edytorze jakiegokolwiek wystąpienia nazwy klasy `Progmrammer` -> *PPM* -> *All Instances*
+- Spróbuj znaleźć źródło problemu
+- Zakończ debuggowanie
+
+Dodatkowe kroki dot. *deatail formatter-a*:
+- podczas debuggowanie; w widoku *Variables* znajdź gdzieś instancję klasy *Progmrammer*; jej podgląd to w tej chwili nieczytelny *toString*
+- *PPM* na wspomnianej instancji -> *New Detail Formatter*; w okienku napisz coś w rodzaju czytelnego toStringa dla wspomnianej klasy; wyświetl nazwę programisty oraz jego główną dziedzinę
+- kontynuuj debuggowanie zwracając uwagę, że w większości podglądów zmiennych instancje klasy `Programmer` są teraz wyswietlane w czytelny sposób - z użyciem wspomnianego *Detail Formattera*
+- Zakończ debuggowanie
