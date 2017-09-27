@@ -1,0 +1,5 @@
+trash/
+src_przykladow/*/target
+src_przykladow/*/.settings
+src_przykladow/*/.classpath
+src_przykladow/*/.project
