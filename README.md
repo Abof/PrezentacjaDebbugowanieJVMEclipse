@@ -155,6 +155,38 @@ Kolejne kroki ćwiczenia:
 - Jeżeli powyższe wykonanie tworzy poprawną listę dodaj do kodu linię podmieniającą listy `installmentsForUser = correctList;` ; uruchom kod; kontynuuj debuggowanie
 - Zakończ debuggowanie
 
+-----
+
+## [Przykład 6] : 'Wyjątkowy' BP ;)
+Kod: `P6_Exception_BP_MiniGUI`
+
+Kolejne kroki ćwiczenia:
+- Uruchom przykład; klikaj w przycisk; spróbuj przewidzieć kiedy wystąpi błąd; nie przewidzisz :)
+- W widoku *Breakpoints* dodaj *Exception Breakpoint*; użyj przycisku ![](img/bp_exception.png)
+  - w okienku znajdź *"szeroką"* klasę wyjątków tj. `java.lang.Exception`; zaznacz reagowanie na  wyjątki *caught* i *uncaught*
+  - dodatkowo, w widoku *Breakpoints*, w dodatkowych sutawieniach nowego BP zaznacz *Subcalsses of this exception*
+- Uruchom kod w trybie debuggowania
+  - znudź się przeklikiwaniem wystąpień kolejnych, nieistotnych dla nas, wyjątków
+  - przerwij debuggowanie
+- W *Breakpoints* -> *PPM* na naszym *BP* -> *Breakpoint Properties* -> *Filtering*
+  - w okienku zaweź reagowanie na wyjątki tylko do pakietu `p6`
+  - uruchom ponownie debuggowanie
+  - klikaj przycisk aż trafisz na wyjątek; na podstawie stosu ramek w *Debug* znajdziesz miejsce wystepienia wyjątku (Eclipse najprawdopodobniej przeniesie Cię też do odpowiedniej lini kodu)
+- Zakończ debuggowanie
+
+-----
+
+## [Przykład 7] : Warunkowe BP
+Kod: `P7_Warunkowy_BP_ProcessingLoop`
+
+  
+
+
+
+
+
+
+
 
 
 
