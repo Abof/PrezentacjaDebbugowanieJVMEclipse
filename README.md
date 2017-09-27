@@ -8,6 +8,8 @@
 
 :heavy_check_mark: Przeczytaj wysztkie kroki danego ćwiczenia przed przystąpieniem do jego realizacji.
 
+-----
+
 ## [Przykład 1] : Podstawowa nawigacja
 Kod: `P1_Podstawy_Nawigacji_Words`
 
@@ -26,4 +28,23 @@ Kolejne kroki ćwiczenia:
 - **Przerwij debuggowanie** : poprzednie kroki miały pokazać pewne niedogodności w debuggowaniu; zaraz to naprawisz.
 - Włącz *step filtering*; w ustawieniach Eclipse zapoznaj się z zakładką *Step filtering* a nastepnie zaznacz wysztkie pakiety oraz wszystkie checkboxy
 - Powtórz debuggowanie z użyciem wymienionych w prezentacji udogodnień (*step filtering*, *run to line*, *step into selection*)
+
+-----
+
+## [Przykład 2] : Cofanie się do początku ramki (drop to frame) + Przegląd stosu ramek
+Kod: `P1_Podstawy_Nawigacji_Words`
+
+Kolejne kroki ćwiczenia:
+- Przeglądanie ramek
+  - Postępuj jak w *Przykładzie 1* ze zwracaniem szczególnej uwagi na widok *Debug* oraz stos ramek. Gdy ramek będzie sporo - spróbuj się pomiędzy nimi poprzełączać zwracając uwagę na widok *Variables*
+- Użycie *Drop to frame*
+  - Dodaj BP na wejściu `WordsProvider.provide()`; pozostałe BP wyłącz; uruchom ponownie debuggowanie; powinieneśtrafić do metody `provide()`
+  - Dodaj BP wewnątrz `forEach` np. w `wordList.add(new Word(commonWord));`
+  - Iteruj wewnątrz pętli używając przycisku *resume*; zrób to ok 10 razy; zwróć uwagę, że lista `wordList` zostaje uzupełniana.
+  - W widoku *Debug* znajdź ramkę wywołania `WordsProvider.provide()`; PPM -> *Drop to frame*; przepieg wywołania wrócił do początku wywołania metody
+  - Ponownie pozwól dodać kilka elementów do listy...
+  - Ponów *drop to frame* wg tego schematu kilkukrotnie; zwróć uwagę, że lista zostaje uzupełniana nadmiarowymi elementami!
+  - Wycisz BP i dojdź do końca działania aplikacji; zwróć uwagę na logi potwierdzające, że efekt uboczny w postaci niepotrzebnego zasilania listy tymi samymi elementami miał miejsce.
+
+-----
 
