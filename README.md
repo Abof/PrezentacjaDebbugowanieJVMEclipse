@@ -31,20 +31,38 @@ Kolejne kroki ćwiczenia:
 
 -----
 
-## [Przykład 2] : Cofanie się do początku ramki (drop to frame) + Przegląd stosu ramek
+## [Przykład 2] : Przegląd stosu ramek + Cofanie się do początku ramki (drop to frame)
 Kod: `P1_Podstawy_Nawigacji_Words`
 
 Kolejne kroki ćwiczenia:
 - Przeglądanie ramek
-  - Postępuj jak w *Przykładzie 1* ze zwracaniem szczególnej uwagi na widok *Debug* oraz stos ramek. Gdy ramek będzie sporo - spróbuj się pomiędzy nimi poprzełączać zwracając uwagę na widok *Variables*
+  - Postępuj jak w *Przykładzie 1* ze zwracaniem szczególnej uwagi na widok *Debug* oraz stos ramek 
+  - Gdy ramek będzie sporo - spróbuj się pomiędzy nimi poprzełączać zwracając uwagę na widok *Variables*
 - Użycie *Drop to frame*
-  - Dodaj BP na wejściu `WordsProvider.provide()`; pozostałe BP wyłącz; uruchom ponownie debuggowanie; powinieneśtrafić do metody `provide()`
+  - Dodaj BP na wejściu `WordsProvider.provide()`; pozostałe BP wyłącz; uruchom ponownie debuggowanie; powinieneś trafić do metody `provide()`
   - Dodaj BP wewnątrz `forEach` np. w `wordList.add(new Word(commonWord));`
-  - Iteruj wewnątrz pętli używając przycisku *resume*; zrób to ok 10 razy; zwróć uwagę, że lista `wordList` zostaje uzupełniana.
-  - W widoku *Debug* znajdź ramkę wywołania `WordsProvider.provide()`; PPM -> *Drop to frame*; przepieg wywołania wrócił do początku wywołania metody
+  - Iteruj wewnątrz pętli używając przycisku *resume*; zrób to ok 10 razy; zwróć uwagę, że lista `wordList` zostaje uzupełniana
+  - W widoku *Debug* znajdź ramkę wywołania `WordsProvider.provide()`; PPM na ramce -> *Drop to frame*; przebieg wywołania wrócił do początku wywołania metody
   - Ponownie pozwól dodać kilka elementów do listy...
   - Ponów *drop to frame* wg tego schematu kilkukrotnie; zwróć uwagę, że lista zostaje uzupełniana nadmiarowymi elementami!
   - Wycisz BP i dojdź do końca działania aplikacji; zwróć uwagę na logi potwierdzające, że efekt uboczny w postaci niepotrzebnego zasilania listy tymi samymi elementami miał miejsce.
 
 -----
 
+## [Przykład 3] : Inspekcja zmiennych
+Kod: `P3_Inspekcja_Zmiennych_HelpDesk`
+
+Upewnij się, że:
+- w perspektywnie *Debug* masz widoki *Variables* oraz *Expressions*; ten drugi powinien nie mieć zdefiniowanych żadnych wyrażeń
+- upewnij się, że **nie masz** zdefiniowanego *Details Formatter* dla klasy `Programmer` z przykładu
+
+Kolejne kroki ćwiczenia:
+- Uruchom kilkukrotnie `P3_MainApp_HelpDesk`; zwróć uwagę na wyniki działania w konsoli
+- Spróbuj - poprzez debuggowanie step by step, począwszy od metody `main` - dostać się do metody `HelpDesk.dispatchTicket(Ticket)`; po drodze:
+  - zwracaj uwagę na widok *Variables*, który prezentuje dane 
+  - spróbuj *"poprzerzucać"* się pomiędzy ramkami
+  - jeżeli to możliwe spróbuj wskazywać myszką w edytorze kodu zainicjalizowane zmienne - powinno dojść do wuświetlenia podglądu tych zmiennych
+- będąc już w metodzie `dispatchTicket(..)`:
+  - w jej ostatniej linijce dodaj BP; metoda jest wywoływana w pętli; będziemy sprawdzać kolejne wywołania tej metody
+  - użyj przycisku *resume* i podglądaj istotne dane w widoku *Variables*; pamiętaj, że obiekty to *"drzewka"*, które można rozwijać; mowa o danych:
+    - asdasd
