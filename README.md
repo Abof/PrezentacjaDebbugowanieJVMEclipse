@@ -49,6 +49,7 @@ Kolejne kroki ćwiczenia:
   - Ponów *drop to frame* wg tego schematu kilkukrotnie; zwróć uwagę, że lista zostaje uzupełniana nadmiarowymi elementami!
   - Wycisz BP i dojdź do końca działania aplikacji; zwróć uwagę na logi potwierdzające, że efekt uboczny w postaci niepotrzebnego zasilania listy tymi samymi elementami miał miejsce.
   - Zakończ debuggowanie
+  
 -----
 
 ## [Przykład 3] : Inspekcja zmiennych
@@ -85,4 +86,30 @@ Dodatkowe kroki dot. *deatail formatter-a*:
 - podczas debuggowanie; w widoku *Variables* znajdź gdzieś instancję klasy *Progmrammer*; jej podgląd to w tej chwili nieczytelny *toString*
 - *PPM* na wspomnianej instancji -> *New Detail Formatter*; w okienku napisz coś w rodzaju czytelnego toStringa dla wspomnianej klasy; wyświetl nazwę programisty oraz jego główną dziedzinę
 - kontynuuj debuggowanie zwracając uwagę, że w większości podglądów zmiennych instancje klasy `Programmer` są teraz wyswietlane w czytelny sposób - z użyciem wspomnianego *Detail Formattera*
+- Zakończ debuggowanie
+
+-----
+
+## [Przykład 4] : Modyfikacja zmiennych
+Kod: `P4_Modyfikacja_Zmiennych_Lottery`
+
+Tło przykładu:
+> Kod przedstawia loterię losującą klienta; dla jego rat zostaną zastosowana promocja; porównanie sum rat przed i po modufikacji wyświetlane jest pod koniec działania
+
+> Wyobraź sobie, że *"biznes"* ma zastrzeżenia do działania aplikacji. Wg nich dla klienta nr **13** pod koniec działania mechanizmu zostały wyliczone niepoprawne raty.
+
+Kolejne kroki ćwiczenia:
+- Spróbuj uruchomić aplikację; próba zakończy się fiaskiem - nie mamy dostępu do odpowiedniej grupy
+- Uruchom aplikację ale w trybie debuggowania; przejdź do metody `makeDreamsComeTrue()`; wewnątrz jej:
+  - Przejdź do `checkIfOprInGroup()` - do linijki gdzie zmienna `oprCtx` jest już zainicjalizowana ale nie doszło do sprawdzenia grupy dostępowej
+  - podmień `oprCtx` na nowy obiekt; znajdź zmienną w *Variables* -> *PPM* -> *Change Value*; w okienku wpisz kod, który stworzy nowy obiekt: `new OperatorCtx("Haker", java.util.Arrays.asList(1234));`; wróć do metody `makeDreamsComeTrue()`
+  - gdy wartość zmiennej `winnerId` zostanie już ustalona - jak najszybciej zmień jej wartość na `13`!
+  - podobnie jak dla grupy dostępowej, gdy zostanie ustalony wynik sprawdzania ograniczeń dla klienta - zmienna `results` - podmień jej wartość; tym razem w okienku dodaj kod przygotowujący i zmieniający obiekt do podmiany:
+     ```
+      CheckingResult newResult = new CheckingResult();
+      newResult.type = p4.restriction.CheckingResult.ResultType.NO_RESTRICTIONS;
+      return newResult;
+      ```
+   - jak tylko lista rat klienta zostanie pobrana - zmienna `installmentsForUser` - zauważ w widoku *Variables*, że zawiera ona `null`-e; dostań się do nich i podmień je używając konstruktora `new Integer(0)`
+   - w konstrukcji `for` pod koniec metody dodaj stosowne *expressions* i spróbuj dojść do tego w czym tkwi problem zgłaszany przez *"bizes"*
 - Zakończ debuggowanie
