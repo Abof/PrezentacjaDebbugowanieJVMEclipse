@@ -1,11 +1,5 @@
 <!doctype html>
 <html lang="en">
-
-
-<!-- SNIPPETY
-	TŁO ANIMOWANE: data-background-video="vidios/breakpoint_add.webm" data-background-color="#000000" data-background-video-loop="loop"
--->
-
 	<head>
 		<meta charset="utf-8">
 		<title>Debuggowanie JVM via Eclipse</title>
@@ -46,7 +40,7 @@
 					<h2><img src="icons/icon_cross_32.png" class="plain" style="width:0.72em; margin:0"> De<span class="orange">bugg</span>owanie</h2>
 					<h4>kodu w JVM</h4>
 					<br/><br/><br/>
-					<!-- <p class = "darker">goo.gl/<b>QQhRh7</b></p> -->
+					<p class = "darker">Dariusz Olszowy</p>
 				</section>
 
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -68,13 +62,12 @@
 						<div class = "fragment" data-fragment-index="3" style="background-image: url('img/deb_eclise_2.png');height:253px; background-size: 100%"></div>
 						<div class = "fragment" data-fragment-index="2" style="background-image: url('img/deb_eclise_3.png');height:204px; background-size: 100%"></div>
 					</section>
-
 					<section>
 						<h3><span class="orange">Nic</span> za darmo</h3>
 						<small class="darker">-agentlib:jdwp=transport=dt_socket,suspend=n,server=y,address=36203</small>
 						<p class = "fragment">...mają wpływ na wydajność pracy VM !</p>
 						<p class = "fragment">...debuggowanie = zawieszanie pracy VM !</p>
-					</br>
+						</br>
 						<h4 class = "fragment">LOKALNIE - <span style="color:green">TAK</span> ; na 'PRODUKCJI' - <span style="color:red">NIE</span> !</h4>
 					</section>
 
@@ -95,16 +88,12 @@
 							<p class = "fragment"><b><span class="darker">> </span>gdy <span class="orange">w nagłówku metody</span> : możliwość wyboru momentu BP metody</b> <span class="darker">(entry/exit)</span></p>
 							<p class = "fragment"><b><span class="darker">> </span>gdy <span class="orange">w linii z definicją zmiennej klasowej</span> : możliwość wyboru zdarzenia dot. zmiennej</b> <span class="darker">(odczyt/zmiana wartości); tzw. 'watchpoint'</span></p>
 					</section>
-
 					<section data-background-video="vidios/dodawanie_podst_BP.mp4" data-background-color="#000000" data-background-video-loop="loop">
 						<div style="background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 1px; margin: 1px;">
 							<p style="font-size:0.7em"><span class = "orange"><b>!</b></span> Oglądasz Eclips-owe '<b>Jak dodawać podstawowe BP</b>'<span class = "orange"> <b>!</b></span></p>
 						</div>
 					<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 					</section>
-
-
-
 				</section>
 
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -229,6 +218,7 @@ Note this command is only available if the current VM supports drop to frame and
 				</section>
 
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 				<section>
 					<section>
 						<h2>Modyfikacja zmiennych</h2>
@@ -268,7 +258,6 @@ Note this command is only available if the current VM supports drop to frame and
 						<h2>Przykład <span class = "orange">4</span></h2>
 						<p>Modyfikacja zmiennych</p>
 					</section>
-
 				</section>
 
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -284,39 +273,30 @@ Note this command is only available if the current VM supports drop to frame and
 						</aside>
 					</section>
 					<section>
-						<!-- <p class="fragment"><span class="darker">> </span><b><u>Step filter</u></b>
-						 (<img src="img/db_step_filter.png" class="plain" style = "margin: 0">) : pozwala zdefiniować klasy lub całe pakiety, które będą pomijane
-						podczas debuggowania <span class = "darker">(<i>javax.*</i>, <i>java.util.*</i>)</span>.</p> -->
 						<h3>Sandbox <span class = "orange">'Display'</span></h3>
 						<p class="fragment">...jest miejscem, w którym możemy <span class="orange">wykonać</span> bądź <span class="orange">zewaluować</span> dowolny kod - również taki ze 'skutkami ubocznymi'.</p>
 						<p class="fragment">...kluczowe są ikony <img src="img/display_eval.png" class="plain" style = "margin: 0; width:0.85em"> oraz <img src="img/display_exec.png" class="plain" style = "margin: 0;width:0.85em"> służące do wykonania <span class="orange">zaznaczonego</span> w oknie kodu</p>
 						</br>
 						<p class="fragment"><small class="darker"><span class="orange">!</span> Opcja 'execute' jest też dostępna dla zaznaczonego tekstu w standardowym edytorze pod PPM</small></p>
 					</section>
-
 					<section>
 						<h3>Force <span class="orange">return</span></h3>
 						<h4 class = "darker">(z poziomu widoku 'Display')</h4>
 						<p>...pozwala <span class="orange">wymusić</span> natychmiastowe zwrócenie wskazanej wartości przez aktywną metodę (ramkę)</p>
 						</br>
 						<p class="fragment"><small class="darker"><span class="orange">!</span> Opcja 'force return' jest też dostępna pod PPM w kilku miejscach dla metod typu 'void'</small></p>
-
 					</section>
-
 					<section>
-                    	<h3>A <span class = "orange">to</span> po co komu?</h3>
-                    	<p class="fragment"><span class="darker">> </span>po to samo po co podmiana zmiennych</p>
-                    	<h4 class="fragment">A szczególnie:</h4>
-                      	<p class="fragment"><span class="darker">> </span>do <span class="orange">prototypowania</span> rozwiązań problemów</p>
-                      	<p class="fragment"><span class="darker">> </span>do wykonywania<span class="orange"> skomplikowanych</span>  / <span class="orange">masowych</span> modyfikacji (np. dla całych kolekcji itp.)</p>
+            	<h3>A <span class = "orange">to</span> po co komu?</h3>
+            	<p class="fragment"><span class="darker">> </span>po to samo po co podmiana zmiennych</p>
+            	<h4 class="fragment">A szczególnie:</h4>
+              	<p class="fragment"><span class="darker">> </span>do <span class="orange">prototypowania</span> rozwiązań problemów</p>
+              	<p class="fragment"><span class="darker">> </span>do wykonywania<span class="orange"> skomplikowanych</span>  / <span class="orange">masowych</span> modyfikacji (np. dla całych kolekcji itp.)</p>
 					</section>
-
 					<section>
 						<h2>Przykład <span class = "orange">5</span></h2>
 						<p>Uruchamianie kodu oraz 'force return'</p>
 					</section>
-
-					<!-- </section> -->
 				</section>
 
 				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -337,8 +317,6 @@ Note this command is only available if the current VM supports drop to frame and
 						</p>
 						<p class = "fragment"><span class="darker">> </span>analiza <span class = "orange">stosu ramek</span> pozwala szybko określić źródło modyfikacji / dostępu
 						</p>
-						<!-- <p><br/><br/><br/><br/><br/><br/><br/></p>
-						<p class="fragment"><small class="darker"><span class="orange">!</span> Dodanie takiego BP jest identyczne do standardowego - dwuklik; różnicą są opcje oraz ikonka <img src="img/bp_watchpoint.png" class="plain" style = "margin: 0; height: 1.1em"></small></p> -->
 					</section>
 					<section>
 						<h3>'<span class = "orange">Exception</span> BP'</h3>
@@ -360,7 +338,6 @@ Note this command is only available if the current VM supports drop to frame and
 							<p><small class="darker"><span class="orange">!</span> Warunki mogą posiadać skutki uboczne; mogą być blokiem kodu zakończonym wyrażeniem<code>return true/false</code>.</small></p>
 						</div>
 					</section>
-
 					<section>
 						<h2>Przykład <span class = "orange">7</span></h2>
 						<p>warunkowe BP</p>
@@ -377,10 +354,8 @@ Note this command is only available if the current VM supports drop to frame and
 							<p ><span class="darker">> </span>uruchomienie dowolnego <span class="orange"><b>JVM z odpowiednimi parametrami VM</b></span></p>
 							<p><small class="darker">-agentlib:jdwp=transport=dt_socket,suspend=n,server=y,address=XYWZ</small></p>
 						</div>
-
 						<p class="fragment"><span class="darker">> </span><b><span class="orange">połączenie do JVM</b> klientem - debbugerem czyli <b>Eclips-em</b></span></p>
 					</section>
-
 					<section data-background-video="vidios/w_dod_pol_zdalnego.mp4" data-background-color="#000000" data-background-video-loop="loop">
 						<div class = "fragment" data-fragment-index="1" style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; margin: 20px;">
 							<h5><span class="darker">> </span><span class="orange">BP</span> zdefiniowane w Eclipse zostaną zsynchronizowane ze zdalną JVM</h5>
@@ -395,18 +370,15 @@ Note this command is only available if the current VM supports drop to frame and
 							<p><small><span class = "orange"><b>!</b></span> Oglądasz Eclips-owe '<b>Jak połączyć się debuggerem do zdalnej JVM</b>'<span class = "orange"> <b>!</b></span></small></p>
 						</div>
 					</section>
-
 					<section>
 						<h2>Przykład <span class = "orange">8</span></h2>
 						<p>połączenie do działającej JVM z opcją</p>
 						<p><small>-agentlib:jdwp=transport=dt_socket,suspend=n,server=y,address=36203</small></p>
 					</section>
-
 					<section>
 						<h2>Przykład <span class = "orange">9</span></h2>
 						<p><br/>Połączenie do Wildfly / JBoss</p>
 					</section>
-
 					<section>
 						<h2>Problemy ze <span class = "orange">źródłami</span></h2>
 						<p class="fragment"><span class="darker">> </span>gdy, na zdalnej JVM, przejdziemy do <span class = "orange">linii kodu, którego nie posiadamy w Eclipse</span></p>
@@ -423,30 +395,26 @@ Note this command is only available if the current VM supports drop to frame and
 					<section>
 						<h1>TRI<span class="orange">KI</span></h1>
 					</section>
-
 					<section>
 						<h3>TRIK <span class = "orange">Automatyczne wykonywanie kodu w BP</span></h3>
 						<p class="fragment"><span class="darker">> </span>Warunki dla BP mogą być blokami kodu - na ich końcu nalezy zwrócić <code>true</code> lub <code>false</code>.</p>
 						<p class="fragment"><span class="darker">> </span>Kod przed instrukcją <code>return</code> może być dowolny.</p>
 						<p class="fragment"><span class="darker">> </span>Gdy blok będzie zwracał na sztywno <code>false</code> - <span class = "orange"><b>nie dojdzie do zatrzymania JVM ale pozostały kod z bloku automatycznie zostanie wykonany</b></span>!</p>
 					</section>
-
 					<section>
 						<h3>Przykład</h3>
 						<h5><span class = "darker">Automatyczne wykonywanie kodu w BP</span></h5>
 						<img class ="plain" src = "img/db_trik_automat_wyk_kodu.png" style="margin:0">
 					</section>
-
 					<section>
 						<h3>TRIK <span class = "orange">Trigger BP</span></h3>
-						<p class="fragment"><span class="darker">> </span> TODO...</p>
-						<p class="fragment"><span class="darker">> </span> TODO...</p>
-						<p class="fragment"><span class="darker">> </span> TODO...</p>
-						<p class="fragment"><span class="darker">> </span> TODO...</p>
-						<p class="fragment"><span class="darker">> </span> TODO...</p>
+						<p class="fragment"><span class="darker">> </span> '<span class = "orange">Trigger</span>' jest <span class = "orange">cechą BP</span> a nie jego typem! </p>
+						<p class="fragment"><span class="darker">> </span> Po dodaniu tej cechy, <span class = "orange">pozostałe</span> BP zostają '<span class = "orange">wyciszone</span>' i oznaczone literą '<span class = "orange">T</span>'</p>
+						<p class="fragment"><span class="darker">> </span> Te pozostałe BP <span class = "orange">zostaną automatycznie aktywowane</span> gdy JVM trafi na trigger BP...</p>
+						<p class="fragment"><span class="darker">> </span> ...a nasz trigger BP zostanie <span class = "orange">dezaktywowany</span>!</p>
+						<p class="fragment"><span class="darker">> </span> Trigger BP służy do <span class = "orange">automatycznego aktywowania grupy BP</span> dopiero w wybranym momencie / sytuacji</p>
 					</section>
 				</section>
-
 				<section>
 					<section>
 						<h3>¯\_(ツ)_/¯</h3>
@@ -485,14 +453,12 @@ Note this command is only available if the current VM supports drop to frame and
 		<script src="js/reveal.js"></script>
 
 		<script>
-
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				controls: true,
 				progress: true,
 				history: true,
 				center: true,
-
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
@@ -503,16 +469,14 @@ Note this command is only available if the current VM supports drop to frame and
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-			           Reveal.configure({
-                  keyboard: {
-                    40: 'next', // go to the next slide when the ENTER key is pressed
-                    38: 'prev'
-                  }
-                });
-
+					]
+				});
+           Reveal.configure({
+            keyboard: {
+              40: 'next', // go to the next slide when the ENTER key is pressed
+              38: 'prev'
+            }
+          });
 		</script>
-
 	</body>
 </html>
