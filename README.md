@@ -1,5 +1,8 @@
 # PrezentacjaDebbugowanieJVMEclipse
 Prezentację znajdziesz tu: https://abof.github.io/PrezentacjaDebbugowanieJVMEclipse
+
+Możesz ściągnąć i rozpakować całe to repo - prezentacja jest stroną statyczną - wyświetl `index.html` w dowolnej przeglądarce.
+
 ## Opis przykładów
 :heavy_check_mark: Kod źródłowy do przykładów znajdziesz w folderze `src_przykladow`. Każdy z nich jest maven-owym projektem, który można bez problemów zaimportować do Eclipse.
 
@@ -283,6 +286,7 @@ for (Person p : res) {
   System.out.println(p.getFirstName() + " " + p.getSurname());
 }
 ```
+
 #### > Wykonaj inną metodę z beana / fasady
 - Pamiętaj, że jesteś *"wewanątrz"* obiektu który ma inne metody; spróbuj wywołać jedną z pozostałych metod!
 
