@@ -230,9 +230,9 @@ Kod: `P8_Worker` oraz `P8_Helper`
   - wpisz nr portu, z którym uruchomiliśmy tryb debugg naszej JVM... czyli *36203*
 - Klikając *Debug* połącz się z JVM.
 - Połączenie powinno być widoczne w widoku *Debug*; przejrzyj je.
-- :bulb: Zwróć uwagę, że nasz wątek sumujący nadal działa - nie został dodany żaden BP; dodanie takowego jest w tym przypadku niemożliwe - nasz projekt jest pusty i nie ma kodu, w który można by się *"wkliknąć"* i dodać BP...
+- :grey_exclamation: Zwróć uwagę, że nasz wątek sumujący nadal działa - nie został dodany żaden BP; dodanie takowego jest w tym przypadku niemożliwe - nasz projekt jest pusty i nie ma kodu, w który można by się *"wkliknąć"* i dodać BP...
 - Znajdź w Eclipse, obok podstawowych przycisków nawigacji podczas debugowania, przycisk *Suspend* (taka pauza); **na razie go nie klikaj!**
-- :bulb: Zrobimy coś nietypowego; zapauzujemy wybrany wątek; JVM zachowa się tak jakby trafiła na BP i przekaże sterowanie do Eclipse; w widoku *Debug* znajdź i zaznacz wątek o nazwie *"ToDoThread"* a następnie użyj przycisku *Suspend*.
+- :grey_exclamation: Zrobimy coś nietypowego; zapauzujemy wybrany wątek; JVM zachowa się tak jakby trafiła na BP i przekaże sterowanie do Eclipse; w widoku *Debug* znajdź i zaznacz wątek o nazwie *"ToDoThread"* a następnie użyj przycisku *Suspend*.
  - Przejrzyj stos ramek; zwróć uwagę na to, że *"corowe"* klasy Javy - czyli `Thread` - Eclipse bez trudu wyświetla; problem jest z kodem z klasy `Worker`; rozwiąż ten problem na jeden z dwóch sposobów:
    - **Sposób I** : Rozłącz się z JVM (przycisk *Disconnect* gdzieś obok *Suspend*); we wspomnianym pustym projekcie dodaj w POM-ie zależność do projektu *P8_Worker* (`groupId: pl.abof.debugg`, `artifactId: P8_Worker`, `version: 0.0.1-SNAPSHOT`); upewnij się, że z projektem jest wszystko OK; powtórz połączenie do JVM oraz wstrzymanie JVM; Eclipse powinien dodać zależności wskazanego w definicji połączenia projektu do przeszukiwanego obszaru podczas debugowania; zrobione!
    - **Sposób II** : Powtórz ćwiczenie, aż do momentu przeglądania stosu ramek; przejdź do ramki z nieosiągalnym kodem klasy `Worker`; w oknie edytora kliknij *Edit Source Lookup Path* -> *Add* -> wybierz opcję wskazywania źródeł z folderu - *File System Directory* -> wskaż folder *src* projektu *P8_Worker*; poczekaj chwilę; zrobione!
