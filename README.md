@@ -195,6 +195,33 @@ Kolejne kroki ćwiczenia:
 - Ponownie uruchom debuggowanie; gdy debugger się zatrzyma - sprawdź czy zgadzają się warunki zatrzymania
 - Zakończ debuggowanie
 
+## [Przykład 8] : Połączenie zdalne do działającej JVM
+Kod: `P8_Worker` oraz `P8_Helper`
+
+> Ćwiczenie będzie składało się z dwóch faz. Pierwszą z nich będzie uruchomienie "z palca" przygotowanego kodu na JVM **nie**zarządzanej przez Eclipse. Drugim krokiem będzie połączenie się z tą JVM z Eclipse-a. Kulminacją będzie próba debuggowania zdalnej JVM z Eclipse-m jako klientem-debuggerem.
+
+### Krok 1 : Uruchomienie kodu na osobnej JVM
+- Zapisz sobie gdzieś źródła przykładów `P8_Worker` oraz `P8_Helper`
+- Oba projekty zainstalluj do swojego lokalnego repozyteorium używając polecenia `mvn clean install` w lini komend; ważne jest to aby projekty trafiły do Twojego lokalnego repozytorium oraz aby ich "jar"-y trafiły do podkatalogów */target*
+- Do osobnego folderu skopiuj wspomniane *jar*-y z katalogów */target* obu projektów
+- Zmień ich nazwy na coś prostszego: *worker.jar* oraz *helper.jar*
+- W lini poleceń, będąc w katalogu z *jar*-ami wykonaj polecenie: `java -cp worker.jar:helper.jar p8.worker.Worker`
+- Powinno dojść do uruchomienia programu sumującego niewielkie losowe liczby całkowite
+- Zakończ działanie aplikacji
+
+### Krok 2 : Uruchomienie kodu na osobnej JVM przygotowanej do zdalnego debuggowania
+- Uruchom kod z przygotowanych *jar*-ów podobnie jak poprzedni ale dodaj parametr, który sprawi, że JVM będzie debuggowalna i będzie czekać na połączenia na wskazanym porcie (**36203**); słowem - uruchom: 
+  ```
+  java -agentlib:jdwp=transport=dt_socket,suspend=n,server=y,address=36203 -cp worker.jar:helper.jar p8.worker.Worker
+  ```
+- Nie zamykaj lini poleceń; niech aplikacja cały czas działa!
+
+### Krok 3 : Połączenie się do JVM z Eclipse
+- Przygotuj pusty workspace w Eclipse; dodaj tam pusty projekt mavenowy
+- Przejdź do perspektywy *Debbug*
+- Rozwiń opcje przy przycisku *Debug As* -> *Debug Configurations* -> Dodaj nowy element w kategorii *Remote Java Application*; skonfiguruj go:
+  - 
+
 
 
 
