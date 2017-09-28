@@ -264,4 +264,27 @@ Kod: **brak**; sam sobie zorganizuj; łącznie z serwerrem ;)
 ### Przykładowe wprawki podczas debuggowania
 > Poniżej znajdziesz przykłady ćwiczeń; istotny jest dostęp do `EntityManagera`; warto też wyświetlać po stronie klienta wyniki wywołań delegata!
 
+#### > Force return
+- Zmiast wykonywać zapytanie spreparuj listę z pojedynczą encją i użyj *force return*
 
+#### > Podmień obiekt zapytania
+- Po stworzeniu obiektu query, a przed jego *"wykonaniem"* stwórz własne `Query` i podmień je dzięki widokowi *Display*; np:
+```
+Query q = em.createQuery("HQLowe zapytanie z dodanym np warunkiem na id...");
+queryOryginalne = q;
+```
+
+#### > Wykonaj testowe zapytanie
+- Skorzystaj z dostępu do `EntityManager`-a i wykonaj *"obok"*, podczas pauzy wątku, jakieś zapytnie; jego wynik wyświetl w logach serwerowych; np:
+````
+Query q = em.createQuery("SELECT p FROM Person p WHERE p.id > 200 and p.firstName LIKE U% ORDER BY p.firstName");
+List<Person> res = q.getResultList();
+for (Person p : res) {
+  System.out.println(p.getFirstName() + " " + p.getSurname());
+}
+```
+#### > Wykonaj inną metodę z beana / fasady
+- Pamiętaj, że jesteś *"wewanątrz"* obiektu który ma inne metody; spróbuj wywołać jedną z pozostałych metod!
+
+#### > Debugguj kod serwerowy
+- Spróbuj, używając *Setp into* wejść w głąb wywołania prostego zapytania; włącz *step filter*; spróbuj dodatkowo odfiltrować pakiety `org.jboss`, `com.arjuna`, `org.hibernate`; sprawdź na http://grepcode.com/ do jakiej klasy trafiłeś; jeżeli jest to *sterownik* postgres-owy spróbuj określić sterownik używany przez serwer (najprawdopodobniej `9.1-903.jdbc4`); ściągnij źródła sterownika z https://jdbc.postgresql.org/download.html rozpakuj je i wskaż je Eclipse-owi aby pozolił ci podziwiać kod :)
