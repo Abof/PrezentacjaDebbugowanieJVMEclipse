@@ -241,9 +241,27 @@ Kod: `P8_Worker` oraz `P8_Helper`
 ## [Przykład 9] : Połączenie do Wildfly / JBoss
 Kod: **brak**; sam sobie zorganizuj; łącznie z serwerrem ;)
 
-> Spróbuj, poprzez analogię, wyobrazić sobie poprzednie ćwieczenie z JVM uuchomionego serwera aplikacji (Wildfly / JBoss)
+> Spróbuj, poprzez analogię, wyobrazić sobie poprzednie ćwieczenie z JVM uuchomionego serwera aplikacji (Wildfly / JBoss).
 
-> Przygotuj lokalną wersję serwera; znajdź *beana* z metodą serwerową (lub *facade* "pod nim"), którą można wywołać delegatem; metoda ta powinna być prostą metodą pobierającą dane z bazy danych; ważne jest również to, żeby można było dodąc BP w klasie która tworzy `Query` w HQL-u oraz ma dostęp do `EntityManager`-a
+> Przygotuj lokalną wersję jakiegoś serwera; znajdź *beana* z metodą serwerową (lub *facade* "pod nim"), którą można wywołać delegatem; metoda ta powinna być prostą metodą pobierającą dane z bazy danych; ważne jest również to, żeby można było dodać BP w klasie która tworzy `Query` w HQL-u oraz ma dostęp do `EntityManager`-a.
 
-> **Przykład:** `LegalBailiffBean` i metoda `getAllBailiff()`; chodzi o to, że można ją wywołać delegatem; BP - co jest istotne - zostanie jednak dodany poziom *"niżej"* - w analogicznej metodzie w `BailiffFacadeBean` bo z tej fasady korzysta wspomniany *bean*
+> **Przykład:** `LegalBailiffBean` i metoda `getAllBailiff()`; chodzi o to, że można ją wywołać delegatem; BP - co jest istotne - zostanie jednak dodany poziom *"niżej"* - w analogicznej metodzie w `BailiffFacadeBean` bo z tej fasady korzysta wspomniany *bean*; w ramach tej metody jest też dostęp do wstrzykniętego `EntityManager`-a.
+
+> Ćwiczenie skłąda się z podobnych do poprzedniego przykadu kroków.
+
+### Krok 1 : Uruchomienie lokalnrgo serwera przygotowanego do zdalnego debuggowania
+- Aby uruchomić serwer w trybie debug zmodyfikuj plik `bin/standalone.conf` - odkomentuj linię opisaną jako ~ *Sample JPDA settings for remote socket debugging*; zapamiętaj **port** z odkomentowanej linii!
+- Uruchom serwer.
+
+### Krok 2 : Połączenie się do JVM z Eclipse
+- Odtwórz ten krok z poprzedniego ćwiczenia; pamiętaj o wpisaniu zapamiętanego portu! Istotne jest również to, abyś w Eclipse miał zaimportowany kod modułu, który chcesz debuggować; moduł ten podaj w parametrach *"debuggowego"* połaczenia
+
+### Krok 3 : Dodanie BP i uruchomienie kodu na serwerze
+- Dodaj BP na wejściu metody, którą chesz debuggować
+- Uruchom kod w Eclipse (delegat?), który sprawi, że serwer wykona fragment kodu, który chcesz debugować; użycie delegata nie może być uruchomione *normalnie* nie musisz klikać w *robaczka* ;)
+- Powinno dojść do wykonania na serwerze linii z BP; serwer powinien zatrzymać JVM i przekazać sterowanie do Eclipse, który, dysponując kodem źródłowym, powinien wyświetlić linijkę w której JVM się zatrzymała
+
+### Przykładowe wprawki podczas debuggowania
+> Poniżej znajdziesz przykłady ćwiczeń; istotny jest dostęp do `EntityManagera`; warto też wyświetlać po stronie klienta wyniki wywołań delegata!
+
 
