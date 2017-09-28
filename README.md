@@ -271,23 +271,23 @@ Kod: **brak**; sam sobie zorganizuj; łącznie z serwerrem ;)
 
 #### > Podmień obiekt zapytania
 - Po stworzeniu obiektu `Query`, a przed jego *"wykonaniem"* stwórz własny obiekt `Query` i zamień je dzięki widokowi *Display*; np:
-```
-Query q = em.createQuery("HQLowe zapytanie z dodanym np warunkiem na id...");
-queryOryginalne = q;
-```
+  ```
+  Query q = em.createQuery("HQLowe zapytanie z dodanym np warunkiem na id...");
+  queryOryginalne = q;
+  ```
 
 #### > Wykonaj testowe zapytanie
 - Skorzystaj z dostępu do `EntityManager`-a i wykonaj *"obok"*, podczas pauzy wątku, jakieś zapytanie; jego wynik wyświetl w logach serwerowych; np:
-```
-Query q = em.createQuery("SELECT p FROM Person p WHERE p.id > 200 and p.firstName LIKE U% ORDER BY p.firstName");
-List<Person> res = q.getResultList();
-for (Person p : res) {
-  System.out.println(p.getFirstName() + " " + p.getSurname());
-}
-```
+  ```
+  Query q = em.createQuery("SELECT p FROM Person p WHERE p.id > 200 and p.firstName LIKE U% ORDER BY p.firstName");
+  List<Person> res = q.getResultList();
+  for (Person p : res) {
+    System.out.println(p.getFirstName() + " " + p.getSurname());
+  }
+  ```
 
 #### > Wykonaj inną metodę z beana / fasady
 - Pamiętaj, że jesteś *"wewnątrz"* obiektu który ma inne metody; spróbuj wywołać jedną z pozostałych metod!
 
 #### > Debuguj kod serwerowy
-- Spróbuj, używając *Setp into* wejść w głąb wywołania prostego zapytania; włącz *step filter*; spróbuj dodatkowo odfiltrować pakiety `org.jboss`, `com.arjuna`, `org.hibernate`; sprawdź na http://grepcode.com/ do jakiej klasy trafiłeś; jeżeli jest to *sterownik* postgres-owy spróbuj określić sterownik używany przez serwer (najprawdopodobniej `9.1-903.jdbc4`); ściągnij źródła sterownika z https://jdbc.postgresql.org/download.html rozpakuj je i wskaż je Eclipse-owi aby pozwolił ci podziwiać kod :)
+- Spróbuj, używając *Step into* wejść w głąb wywołania prostego zapytania; włącz *step filter* i spróbuj dodatkowo odfiltrować pakiety `org.jboss`, `com.arjuna`, `org.hibernate`; sprawdź na http://grepcode.com/ do jakiej klasy trafiłeś; jeżeli jest to *sterownik* postgres-owy spróbuj określić jego wersję (najprawdopodobniej `9.1-903.jdbc4`); ściągnij źródła sterownika z https://jdbc.postgresql.org/download.html rozpakuj je i wskaż je Eclipse-owi aby pozwolił ci podziwiać debugowany kod :)
