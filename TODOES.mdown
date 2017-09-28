@@ -1,8 +1,8 @@
 ## Co jest jeszcze do zrobienia / poprawienia (od najistotniejszej sprawy)?
 
 ### SLAJDY / TEKST / OPISY:
-* przykłady kod + opis (mdown?)
-* dodać poradę z Filter dla Exception BP
+* ~~przykłady kod + opis (mdown?)~~
+* ~~dodać poradę z Filter dla Exception BP~~ (jest w przykładach)
 * ~~dodać gdzieś pod koniec INFO, że wiele z udogodnien jest dostepnych po PPM !~~
 * opisac TRIK Trigger BP
 
