@@ -279,7 +279,7 @@ queryOryginalne = q;
 
 #### > Wykonaj testowe zapytanie
 - Skorzystaj z dostępu do `EntityManager`-a i wykonaj *"obok"*, podczas pauzy wątku, jakieś zapytanie; jego wynik wyświetl w logach serwerowych; np:
-````
+```
 Query q = em.createQuery("SELECT p FROM Person p WHERE p.id > 200 and p.firstName LIKE U% ORDER BY p.firstName");
 List<Person> res = q.getResultList();
 for (Person p : res) {
