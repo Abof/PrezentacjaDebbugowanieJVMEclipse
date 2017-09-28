@@ -195,6 +195,8 @@ Kolejne kroki ćwiczenia:
 - Ponownie uruchom debuggowanie; gdy debugger się zatrzyma - sprawdź czy zgadzają się warunki zatrzymania
 - Zakończ debuggowanie
 
+-----
+
 ## [Przykład 8] : Połączenie zdalne do działającej JVM
 Kod: `P8_Worker` oraz `P8_Helper`
 
@@ -233,16 +235,15 @@ Kod: `P8_Worker` oraz `P8_Helper`
  - Przejrzyj stos ramek; zwróć uwagę na to, że *"corowe"* klasy Javy - czyli `Thread` - Eclipse bez trudu wyświetla; problem jest z kodem z klasy `Worker`; rozwiąż ten problem na jeden z dwóch sposobów:
    - **Sposób I** : Rozłącz się z JVM (przycisk *Disconnect* gdzieś obok *Suspend*); we wpsomnianym pustym projekcie dodaj w POM-ie zależność do projektu *P8_Worker* (`groupId: pl.abof.debugg`, `artifactId: P8_Worker`, `version: 0.0.1-SNAPSHOT`); upewnij się, że z projektem jest wszystko OK; powtórz połączenie i wstrzymanie JVM; Eclipse powinien dodać zależności wskazengo w def. połączenia  projektu do przeszukiwanego obszaru podczas debuggowania.
    - **Sposób II** : Powtórz ćwiczenie, aż do momentu przeglądania stosu ramek; przejdź do ramki z niosoągalnym kodem klasy `Worker`; w oknie edytora klikni *Edit Source Lookup Path* -> *Add* -> wybierz opcję wskazywania źródeł z folderu - *File System Directory* -> wskaż folder *src* projektu *P8_Worker*; poczekaj chwilę; zrobione!
-    
 
+-----
 
+## [Przykład 9] : Połączenie do Wildfly / JBoss
+Kod: **brak**; sam sobie zorganizuj; łącznie z serwerrem ;)
 
+> Spróbuj, poprzez analogię, wyobrazić sobie poprzednie ćwieczenie z JVM uuchomionego serwera aplikacji (Wildfly / JBoss)
 
+> Przygotuj lokalną wersję serwera; znajdź *beana* z metodą serwerową (lub *facade* "pod nim"), którą można wywołać delegatem; metoda ta powinna być prostą metodą pobierającą dane z bazy danych; ważne jest również to, żeby można było dodąc BP w klasie która tworzy `Query` w HQL-u oraz ma dostęp do `EntityManager`-a
 
-
-
-
-
-
-
+> **Przykład:** `LegalBailiffBean` i metoda `getAllBailiff()`; chodzi o to, że można ją wywołać delegatem; BP - co jest istotne - zostanie jednak dodany poziom *"niżej"* - w analogicznej metodzie w `BailiffFacadeBean` bo z tej fasady korzysta wspomniany *bean*
 
