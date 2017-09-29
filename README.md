@@ -215,7 +215,9 @@ Kod: `P8_Worker` oraz `P8_Helper`
 ### Krok 2 : Uruchomienie kodu na osobnej JVM przygotowanej do zdalnego debugowania
 - Ponownie uruchom kod z przygotowanych *jar*-ów ale tym razem dodaj parametr, który sprawi, że JVM będzie debugowalna i będzie czekać na połączenia na wskazanym porcie (**36203**); słowem - uruchom:
   ```
-  java -agentlib:jdwp=transport=dt_socket,suspend=n,server=y,address=36203 -cp worker.jar:helper.jar p8.worker.Worker
+  java 
+    -agentlib:jdwp=transport=dt_socket,suspend=n,server=y,address=36203 
+    -cp worker.jar:helper.jar p8.worker.Worker
   ```
 - Nie zamykaj linii poleceń; **niech aplikacja cały czas działa!**
 
