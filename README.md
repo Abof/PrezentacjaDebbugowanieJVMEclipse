@@ -279,7 +279,7 @@ Kod: **brak**; sam sobie zorganizuj; łącznie z serwerrem ;)
 #### > Wykonaj testowe zapytanie
 - Skorzystaj z dostępu do `EntityManager`-a i wykonaj *"obok"*, podczas pauzy wątku, jakieś zapytanie; jego wynik wyświetl w logach serwerowych; np:
   ```
-  Query q = em.createQuery("SELECT p FROM Person p WHERE p.id > 200 and p.name LIKE 'U%' ORDER BY p.name");
+  Query q = em.createQuery("SELECT p FROM Person p WHERE p.id > 200 and p.name LIKE 'U%'");
   List<Person> res = q.getResultList();
   for (Person p : res) {
     System.out.println(p.getFirstName() + " " + p.getSurname());
